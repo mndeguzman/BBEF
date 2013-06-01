@@ -27,7 +27,6 @@ Scenario: i can see list of students from the database
     | first3 last3 | 20/04/2009 | third | school3   |
 
 @current
-@javascript
 Scenario: i can see a student
     Given the following students exist
     | first_name | last_name | grade  | institute | dob        |
