@@ -5,9 +5,11 @@ gem 'rails', '3.2.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
-
+group :development, :test do
+  gem 'sqlite3', '1.3.5'
+  gem 'rspec-rails', '2.11.0'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,7 +25,6 @@ group :assets do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara', '1.1.2'
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'factory_girl_rails'
@@ -31,6 +32,10 @@ group :test do
   gem 'capybara-screenshot'
   gem 'pickle'
   gem 'timecop'
+end
+
+group :production do
+  gem 'pg', '0.12.2'
 end
 
 gem 'jquery-rails'
@@ -49,3 +54,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+
+
