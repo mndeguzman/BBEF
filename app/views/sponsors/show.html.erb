@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="span well">
+    <div class="span12">
+       <h2>view a sponsor</h2>
+    </div>
+
+    <div class="span5">
+          <div>Name : <span id="sponsor_name"><%= "#{@sponsor.first_name} #{@sponsor.last_name}" %></span></div>
+          <div>Current Balance : <span id="sponsor_current_balance"><%= number_to_currency @sponsor.current_balance %></span></div>
+          <div>Date Paid : <span id="sponsor_date_paid"><%= @sponsor.date_paid.strftime("%d/%m/%Y") if @sponsor.date_paid %></span></div>
+    </div>
+  </div>
+
+<%= link_to "Edit sponsor", edit_sponsor_path(@sponsor.id), id: "edit_sponsor_link" , class: 'btn btn-large'%>
+</div>

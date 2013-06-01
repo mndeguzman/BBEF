@@ -11,9 +11,9 @@
 	<tbody>
 		<% @sponsors.each do |sponsor| %>
 		<tr class="sponsor">
-			<td><%= sponsor.first_name %> <%= sponsor.last_name %></td>
+			<td><%= link_to "#{sponsor.first_name} #{sponsor.last_name}", sponsor_path(sponsor.id)%></td>
 			<td><%= number_to_currency sponsor.current_balance %></td>
-			<td><%= sponsor.date_paid.strftime("%d/%m/%Y") %></td>
+			<td><%= sponsor.date_paid.strftime("%d/%m/%Y") if sponsor.date_paid %></td>
 		</tr>
 		<% end %>	
 	</tbody>
