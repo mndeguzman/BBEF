@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="BBEF Admin Tool for Sponsors and Students" />
 
+  
   <title>
     <%= content_for?(:title) ? yield(:title) : "Page title untitled" %> - Bagong Barrio Education Fund
   </title>
@@ -37,6 +38,7 @@
     <div class="primary_header row">
       <div class="site_subheader columns small-12">
         Bagong Barrio Education Fund - St Vincent de Paul Society
+        <%= image_tag 'logo.small.png', alt: 'Bagong Bario Education Fund Logo'%>
       </div>
       <h1 class="page_title columns small-12">
         <%= content_for?(:title) ? yield(:title) : "Page title untitled" %>
