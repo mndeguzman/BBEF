@@ -63,3 +63,16 @@ Then(/^I enter and save the following details of a student$/) do |required_value
   fill_in "student_institute",         with: student_values_to_fill_in['Institute'] if student_values_to_fill_in['Institute'] 
   click_button "save_student"
 end
+
+When(/^I choose to cancel the current action$/) do
+  click_link "Cancel"
+end
+
+When(/^I should be viewing the student list$/) do
+  TableHelper.assert_table_is_present("student",page)
+end
+
+When(/^I should be viewing the student details$/) do
+  page.find("#student_details").nil?.should == false
+end
+

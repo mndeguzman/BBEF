@@ -29,7 +29,7 @@
 
       <div class="span12">
             <%= f.submit "Save", class: "btn btn-large btn-primary", id: "save_student" %>
-            <%= link_to "Cancel", students_path, id: "create_student_cancel" , class: 'btn btn-large'%>
+            <%= link_to "Cancel", student_path(@student.id), id: "create_student_cancel" , class: 'btn btn-large'%>
         <% end %>
       </div>
       
