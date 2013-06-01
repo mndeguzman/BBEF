@@ -17,3 +17,7 @@
 # ignore version manager files
 .ruby-gemset
 .ruby-version
+
+# ignore some IDE files
+.idea/
+*.iml
