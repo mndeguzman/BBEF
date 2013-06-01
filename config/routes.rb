@@ -1,4 +1,6 @@
 BBEF::Application.routes.draw do
+  get "sponsors/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -15,6 +17,8 @@ BBEF::Application.routes.draw do
 
    #Sample resource route with options:
   resources :students
+
+  resources :sponsors
 
   # Sample resource route with options:
   #   resources :products do
