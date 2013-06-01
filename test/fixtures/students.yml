@@ -4,7 +4,7 @@ one:
   first_name: MyString
   last_name: MyString
   grade: MyString
-  institue: MyString
+  institute: MyString
   course: MyString
   dob: 2013-06-01
   sex: MyString
@@ -16,7 +16,7 @@ two:
   first_name: MyString
   last_name: MyString
   grade: MyString
-  institue: MyString
+  institute: MyString
   course: MyString
   dob: 2013-06-01
   sex: MyString
