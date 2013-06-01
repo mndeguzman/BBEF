@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  grade: MyString
+  institue: MyString
+  course: MyString
+  dob: 2013-06-01
+  sex: MyString
+  num_year: 1
+  program_start: 2013-06-01
+  program_end: 2013-06-01
+
+two:
+  first_name: MyString
+  last_name: MyString
+  grade: MyString
+  institue: MyString
+  course: MyString
+  dob: 2013-06-01
+  sex: MyString
+  num_year: 1
+  program_start: 2013-06-01
+  program_end: 2013-06-01
