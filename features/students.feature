@@ -26,3 +26,19 @@ Scenario: i can see list of students from the database
     | Name         | DOB        | Grade | Institute |
     | first3 last3 | 20/04/2009 | third | school3   |
 
+@current
+@javascript
+Scenario: i can see a student
+    Given the following students exist
+    | first_name | last_name | grade  | institute | dob        |
+    | first2     | last2     | second | school1   | 20/01/2011 |
+    | first1     | last1     | first  | school2   | 20/03/2010 |
+    When I view the list of students
+    And I choose to view the student "first1 last1"
+    Then I see the following details of a student
+     | Name      | first1 last1 |
+     | DOB       | 20/03/2010   |
+     | Grade     | first        |
+     | Institute | school2      |
+
+

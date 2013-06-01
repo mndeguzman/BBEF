@@ -1,6 +1,6 @@
 Feature: i can see the sponsors pages
 
-@wip
+
 Scenario: i can see list of sponsors from the database
     Given the following sponsors exist
     | first_name | last_name | date_paid  | current_balance |

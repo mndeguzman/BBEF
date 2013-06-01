@@ -1,4 +1,7 @@
 class StudentsController < ApplicationController
+	
+	before_filter :find_student
+
 	def index
 		@students = Student.order("last_name").all
 	end
@@ -12,4 +15,13 @@ class StudentsController < ApplicationController
 	    @student.save
 	    redirect_to students_path
 	end		
+
+	def show
+	end		
+
+  private 
+  def find_student
+       @student = Student.find(params[:id]) if params[:id]
+  end
+
 end

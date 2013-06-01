@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="span well">
+    <div class="span12">
+       <h2>view a student</h2>
+    </div>
+
+    <div class="span5">
+          <div>Name : <span id="student_name"><%= "#{@student.first_name @student.last_name}" %></span></div>
+          <div>Date Of Birth : <span id="student_dob"><%= @student.dob %></span></div>
+          <div>Grade : <span id="student_grade"><%= @student.grade %><span><div>
+          <div>School/College : <span id="student_institute"><%= @student.institute %></span></div>
+    </div>
+  </div>
+</div>

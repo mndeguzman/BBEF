@@ -22,3 +22,19 @@ When /^I attempt to create a student with the following values$/ do |required_va
   click_button "create_student"
 
 end
+
+When(/^I choose to view the student "(.*?)"$/) do |student_name|
+  click_link student_name
+end
+
+Then(/^I see the following details of a student$/) do |expected_values|
+  student_values_to_fill_in = expected_values.rows_hash
+
+ 
+
+  page.find("#student_name").value.should == installation_values_to_fill_in['Name']
+  page.find("#student_dob").value.should == installation_values_to_fill_in['DOB']
+  page.find("#student_grade").value.should == installation_values_to_fill_in['Grade']
+  page.find("#student_institute").value.should == installation_values_to_fill_in['Institute']
+
+end
