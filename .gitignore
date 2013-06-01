@@ -17,3 +17,6 @@
 # ignore version manager files
 .ruby-gemset
 .ruby-version
+
+# ignore sass cache files
+.sass-cache

@@ -18,7 +18,9 @@
     <%= content_for?(:title) ? yield(:title) : "Page title untitled" %> - Bagong Barrio Education Fund
   </title>
 
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "normalize", media:"screen, projector, print" %>
+  <%= stylesheet_link_tag "app", media:"screen, projector, print" %>
+
   <%= javascript_include_tag "vendor/custom.modernizr" %>
   <%= csrf_meta_tags %>
 </head>
