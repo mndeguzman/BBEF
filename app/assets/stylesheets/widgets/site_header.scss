@@ -4,7 +4,7 @@
 	}
 
 	.site_subheader {
+		@include subtleText;
 		padding-top: emCalc(5px);
-		font-style: italic;
 	}
 }

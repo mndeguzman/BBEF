@@ -1,0 +1,5 @@
+@mixin subtleText() {
+	text-align: right;
+	font-style: italic;
+	color: $subtleColor1;
+}

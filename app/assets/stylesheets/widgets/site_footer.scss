@@ -5,6 +5,6 @@
 	}
 
 	.copyright_wrapper {
-		text-align: right;
+		@include subtleText;
 	}
 }

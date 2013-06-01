@@ -45,14 +45,17 @@
 
     <div class="primary_nav row">
       <a name="primary_nav"></a>
-      <ul class="site_nav columns small-12">
-        <li>
-          <%= link_to "Students", students_path, id: "students-menu-item", class: "tiny button" %>
-        </li>
-        <li>
-          <%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "tiny button" %>
-        </li>
-      </ul>
+
+			<div class="site_nav columns small-12">
+				<ul class="button-group">
+					<li>
+						<%= link_to "Students", students_path, id: "students-menu-item", class: "tiny button" %>
+					</li>
+					<li>
+						<%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "tiny button" %>
+					</li>
+				</ul>
+			</div>
     </div>
   </header>
 
