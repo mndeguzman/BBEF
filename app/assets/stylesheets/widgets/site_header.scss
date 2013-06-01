@@ -1,3 +1,10 @@
-.accessibility_link {
-	@include offscreen;
+.site_header {
+	.accessibility_link {
+		@include offscreen;
+	}
+
+	.site_subheader {
+		padding-top: emCalc(5px);
+		font-style: italic;
+	}
 }

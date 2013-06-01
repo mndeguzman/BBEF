@@ -1,8 +1,9 @@
-.nav_list {
+.site_nav {
 	@include clearfix;
-}
-.nav_list > li {
-	float: left;
-	display: inline;
-	padding: emCalc(5px);
+
+	& > li {
+		float: left;
+		display: inline;
+		padding: emCalc(5px);
+	}
 }

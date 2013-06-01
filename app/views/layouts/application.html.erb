@@ -29,10 +29,11 @@
 </head>
 
 <body>
-  <a href="#primary_nav" class="accessibility_link">Jump to site navigation</a>
-  <a href="#site_contents" class="accessibility_link">Jump to site contents</a>
-
   <header class="site_header">
+		<%# Accessibility links %>
+		<a href="#primary_nav" class="accessibility_link">Jump to site navigation</a>
+		<a href="#site_contents" class="accessibility_link">Jump to site contents</a>
+
     <div class="primary_header row">
       <div class="site_subheader columns small-12">
         Bagong Barrio Education Fund - St Vincent de Paul Society
@@ -44,7 +45,7 @@
 
     <div class="primary_nav row">
       <a name="primary_nav"></a>
-      <ul class="nav_list columns small-12">
+      <ul class="site_nav columns small-12">
         <li>
           <%= link_to "Students", students_path, id: "students-menu-item", class: "tiny button" %>
         </li>
@@ -63,13 +64,15 @@
   </div>
 
   <footer class="site_footer row">
-    <div class="columns small-1">
-      <a target="blank" href="http://www.facebook.com/group.php?gid=324220396477">
+    <div class="logo_wrapper columns small-1">
+      <a target="blank" href="http://www.facebook.com/group.php?gid=324220396477" class="facebook_icon_link">
         <%= image_tag 'global/facebookIcon.jpg', alt:'Visit BBEF on Facebook' %>
       </a>
     </div>
-    <div class="columns small-10">
+    <div class="copyright_wrapper columns small-10">
+			<p>
        &copy; Copyright 2010 Bagong Barrio Education Fund
+			</p>
     </div>
   </footer>
 
