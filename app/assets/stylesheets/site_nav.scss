@@ -1,0 +1,8 @@
+.nav_list {
+	//@include clearfix;
+}
+.nav_list > li {
+	float: left;
+	display: inline;
+	padding: emCalc(5px);
+}
