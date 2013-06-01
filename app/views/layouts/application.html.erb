@@ -5,29 +5,66 @@
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
- <meta charset="utf-8" />
+  <meta charset="utf-8" />
 
- <!-- Uncomment to make IE8 render like IE7 -->
- <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+  <!-- Uncomment to make IE8 render like IE7 -->
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
- <!-- Set the viewport width to device width for mobile -->
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BBEF Admin Tool for Sponsors and Students" />
 
- <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title>
+    <%= content_for?(:title) ? yield(:title) : "Page title untitled" %> - Bagong Barrio Education Fund
+  </title>
 
- <%= stylesheet_link_tag    "application" %>
- <%= javascript_include_tag "vendor/custom.modernizr" %>
- <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= csrf_meta_tags %>
 </head>
 
 <body>
-  <ul>
-  <li><%= link_to "Students", students_path, id: "students-menu-item", class: "" %></li>
-  <li><%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "" %></li>
-  </ul>
+  <a href="#primary_nav">Jump to site navigation</a>
+  <a href="#site_contents">Jump to site contents</a>
 
-  <%= yield %>
+  <header class="site_header">
+    <div class="primary_header">
+      <div class="site_subheader">
+        Bagong Barrio Education Fund - St Vincent de Paul Society
+      </div>
+      <h1 class="page_title">
+        <%= content_for?(:title) ? yield(:title) : "Page title untitled" %>
+      </h1>
+    </div>
 
+    <div class="primary_nav">
+      <a name="primary_nav"></a>
+      <ul class="nav_list">
+        <li>
+          <%= link_to "Students", students_path, id: "students-menu-item", class: "tiny button" %>
+        </li>
+        <li>
+          <%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "tiny button" %>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="site_body">
+    <a name="site_contents"></a>
+    <%= yield %>
+  </div>
+
+  <footer class="site_footer row">
+    <div class="columns large-10">
+      <a target="blank" href="http://www.facebook.com/group.php?gid=324220396477">
+        <img src="assets/images/global/facebookIcon.jpg" alt="BBEF Facebook Group">
+      </a>
+    </div>
+    <div class="columns large-2">
+       @copy; Copyright 2010 Bagong Barrio Education Fund
+    </div>
+  </footer>
 
   <%= javascript_include_tag "application" %>
 </body>
