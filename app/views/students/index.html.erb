@@ -1,0 +1,11 @@
+<table class="table table-striped" id="students">
+  <tr>
+    <th>Name</th>
+  </tr>
+ <% @students.each do |student| %>
+ <tr class="student">
+    <td><%= "#{student.first_name} #{student.last_name}"%></td>
+  </tr>
+  <% end %>
+
+</table>
