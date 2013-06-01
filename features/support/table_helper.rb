@@ -13,7 +13,7 @@ module TableHelper
    table_results = page.all(table_result_loctaion).map do |row|
       row_values = []
       row.all('td').reject {|cell| cell['class'] =~ /action_link/}.each do |cell|
-          row_values << cell.text
+          row_values << cell.text.strip
           if cell['class']
             cell['class'].split(" ").each do |display_class|
               if(display_class =~ /display_as_(.*)/)
