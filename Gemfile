@@ -8,6 +8,7 @@ gem 'rails', '3.2.7'
 gem 'sqlite3'
 
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,6 +23,7 @@ group :assets do
 end
 
 group :test do
+  gem 'rspec-rails'
   gem 'capybara', '1.1.2'
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'factory_girl_rails'

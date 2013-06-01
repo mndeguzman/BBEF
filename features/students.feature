@@ -26,7 +26,6 @@ Scenario: i can see list of students from the database
     | Name         | DOB        | Grade | Institute |
     | first3 last3 | 20/04/2009 | third | school3   |
 
-@current
 Scenario: i can see a student
     Given the following students exist
     | first_name | last_name | grade  | institute | dob        |
@@ -39,5 +38,30 @@ Scenario: i can see a student
      | DOB       | 20/03/2010   |
      | Grade     | first        |
      | Institute | school2      |
+
+@current
+Scenario: i can edit a student
+    Given the following students exist
+    | first_name | last_name | grade  | institute | dob        |
+    | first2     | last2     | second | school1   | 20/01/2011 |
+    | first1     | last1     | first  | school2   | 20/03/2010 |
+    When I view the list of students
+    And I choose to view the student "first1 last1"
+    And I choose to edit the current student
+    Then I see prepopulated the details of a student
+     | First Name | first1     |
+     | Last Name  | last1      |
+     | DOB        | 20/03/2010 |
+     | Grade      | first      |
+     | Institute  | school2    |
+    Then I enter and save the following details of a student
+     | First Name | bob |
+    Then I see the following details of a student
+     | Name      | bob last1  |
+     | DOB       | 20/03/2010 |
+     | Grade     | first      |
+     | Institute | school2    |
+
+  
 
 

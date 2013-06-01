@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="span well">
+    <div class="span12">
+       <h2>Add a new student</h2>
+    </div>
+        <%= form_for(@student) do |f| %>
+
+    <div class="span5">
+          <%= f.label :first_name , "First Name"%>
+          <%= f.text_field :first_name %>
+
+          <%= f.label :last_name , "Last Name"%>
+          <%= f.text_field :last_name %>
+
+          <%= f.label :dob , "Date of Birth"%>
+          <%= f.text_field :dob, value: "#{@student.dob.strftime("%d/%m/%Y") if @student.dob }"%>
+      </div>
+
+      <div class="span5">
+
+
+          <%= f.label :grade , "Grade"%>
+          <%= f.text_field :grade %> 
+
+          <%= f.label :institute , "School/College"%>
+          <%= f.text_field :institute %> 
+
+      </div>
+
+      <div class="span12">
+            <%= f.submit "Save", class: "btn btn-large btn-primary", id: "save_student" %>
+            <%= link_to "Cancel", students_path, id: "create_student_cancel" , class: 'btn btn-large'%>
+        <% end %>
+      </div>
+      
+      </div>
+  </div>
+</div>
