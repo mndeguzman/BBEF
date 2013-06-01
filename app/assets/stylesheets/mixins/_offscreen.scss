@@ -1,0 +1,10 @@
+/* **
+* Hide contents from the viewport but leaves it visible for screenreaders
+*/
+@mixin offscreen {
+	display: block;
+	background: transparent;
+	position: absolute;
+	left: -100000px;
+	top: -1000em;
+}

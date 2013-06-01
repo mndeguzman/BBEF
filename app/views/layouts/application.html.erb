@@ -18,56 +18,74 @@
     <%= content_for?(:title) ? yield(:title) : "Page title untitled" %> - Bagong Barrio Education Fund
   </title>
 
-  <%= stylesheet_link_tag "normalize", media:"screen, projector, print" %>
-  <%= stylesheet_link_tag "app", media:"screen, projector, print" %>
+	<%# Stylesheets %>
+  <%= stylesheet_link_tag    'normalize' %>
+  <%= stylesheet_link_tag 'application' %>
 
-  <%= javascript_include_tag "vendor/custom.modernizr" %>
+	<%# Global header javascript %>
+  <%= javascript_include_tag 'vendor/custom.modernizr' %>
+
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-  <a href="#primary_nav">Jump to site navigation</a>
-  <a href="#site_contents">Jump to site contents</a>
-
   <header class="site_header">
-    <div class="primary_header">
-      <div class="site_subheader">
+		<%# Accessibility links %>
+		<a href="#primary_nav" class="accessibility_link">Jump to site navigation</a>
+		<a href="#site_contents" class="accessibility_link">Jump to site contents</a>
+
+    <div class="primary_header row">
+      <div class="site_subheader columns small-12">
         Bagong Barrio Education Fund - St Vincent de Paul Society
       </div>
-      <h1 class="page_title">
+      <h1 class="page_title columns small-12">
         <%= content_for?(:title) ? yield(:title) : "Page title untitled" %>
       </h1>
     </div>
 
-    <div class="primary_nav">
+    <div class="primary_nav row">
       <a name="primary_nav"></a>
-      <ul class="nav_list">
-        <li>
-          <%= link_to "Students", students_path, id: "students-menu-item", class: "tiny button" %>
-        </li>
-        <li>
-          <%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "tiny button" %>
-        </li>
-      </ul>
+
+			<div class="site_nav columns small-12">
+				<ul class="button-group">
+					<li>
+						<%= link_to "Students", students_path, id: "students-menu-item", class: "tiny button" %>
+					</li>
+					<li>
+						<%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "tiny button" %>
+					</li>
+				</ul>
+			</div>
     </div>
   </header>
 
-  <div class="site_body">
+  <div class="site_body row">
     <a name="site_contents"></a>
-    <%= yield %>
+		<div class="columns small-12">
+    	<%= yield %>
+		</div>
   </div>
 
   <footer class="site_footer row">
-    <div class="columns large-10">
-      <a target="blank" href="http://www.facebook.com/group.php?gid=324220396477">
+    <div class="logo_wrapper columns small-1">
+      <a target="blank" href="http://www.facebook.com/group.php?gid=324220396477" class="facebook_icon_link">
         <%= image_tag 'global/facebookIcon.jpg', alt:'Visit BBEF on Facebook' %>
       </a>
     </div>
-    <div class="columns large-2">
+    <div class="copyright_wrapper columns small-10">
+			<p>
        &copy; Copyright 2010 Bagong Barrio Education Fund
+			</p>
     </div>
   </footer>
 
-  <%= javascript_include_tag "application" %>
+	<%# Global footer javascript %>
+	<script type="text/javascript">
+		document.write('<script src=' + ('__proto__' in {} ? '/assets/vendor/zepto' : '/assets/vendor/jquery') + '.js><\/script>');
+	</script>
+  <%= javascript_include_tag "foundation" %>
+	<script type="text/javascript">
+		$(document).foundation();
+	</script>
 </body>
 </html>

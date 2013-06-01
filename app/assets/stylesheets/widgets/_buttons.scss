@@ -1,0 +1,7 @@
+.submit.button {
+	@extend .success;
+}
+
+.cancel.button {
+	@extend .alert;
+}

@@ -1,0 +1,9 @@
+.site_nav {
+	@include clearfix;
+
+	& > li {
+		float: left;
+		display: inline;
+		padding: emCalc(5px);
+	}
+}
