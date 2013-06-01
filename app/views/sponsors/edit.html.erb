@@ -1,32 +1,32 @@
 <% content_for(:title) { 'Sponsors' } %>
 
 <div class="row">
-  <div class="span well">
-  <%= form_for(@sponsor) do |f| %>
-   <div class="span12">
-   <h2>Edit sponsor</h2>
-   </div>
+	<div class="span well">
+		<%= form_for(@sponsor) do |f| %>
+			<div class="span12">
+				<h2>Edit sponsor</h2>
+			</div>
 
-   <div class="span5">
-      <%= f.label :first_name , "First Name"%>
-      <%= f.text_field :first_name %>
+			<div class="span5">
+				<%= f.label :first_name, "First Name" %>
+				<%= f.text_field :first_name %>
 
-      <%= f.label :last_name , "Last Name"%>
-      <%= f.text_field :last_name %>
+				<%= f.label :last_name, "Last Name" %>
+				<%= f.text_field :last_name %>
 
-      <%= f.label :current_balance , "Current Balance"%>
-      <%= f.text_field :current_balance, value: number_to_currency(@sponsor.current_balance, unit: '') %>
+				<%= f.label :current_balance, "Current Balance" %>
+				<%= f.text_field :current_balance, value: number_to_currency(@sponsor.current_balance, unit: '') %>
 
-      <%= f.label :date_paid , "Date Paid"%>
-      <%= f.text_field :date_paid, value: @sponsor.date_paid && @sponsor.date_paid.strftime("%d/%m/%Y") %>
-  </div>
+				<%= f.label :date_paid, "Date Paid" %>
+				<%= f.text_field :date_paid, value: @sponsor.date_paid && @sponsor.date_paid.strftime("%d/%m/%Y") %>
+			</div>
 
-  <div class="span12">
-  <%= f.submit "Save", class: "tiny submit button", id: "save_sponsor" %>
-  <%= link_to "Cancel", sponsor_path(@sponsor.id), id: "create_sponsor_cancel" , class: 'tiny cancel button'%>
-  </div>
+			<div class="span12">
+				<%= f.submit "Save", class: "tiny submit button", id: "save_sponsor" %>
+				<%= link_to "Cancel", sponsor_path(@sponsor.id), id: "create_sponsor_cancel", class: 'tiny cancel button' %>
+			</div>
 
-</div>
-<% end %>
-</div>
+			</div>
+		<% end %>
+		</div>
 </div>

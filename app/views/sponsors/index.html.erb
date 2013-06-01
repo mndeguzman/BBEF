@@ -1,27 +1,27 @@
 <% content_for(:title) { 'Sponsors' } %>
-<%= link_to "Create Sponsor", new_sponsor_path, id: "sponsor_create_link" , class: 'tiny button'%>
+<%= link_to "Create Sponsor", new_sponsor_path, id: "sponsor_create_link", class: 'tiny button' %>
 
 <table id="sponsors" class="sponsor_list">
 	<thead>
-		<tr>
-			<th>
-				Name
-			</th>
-			<th>
-				Current Balance
-			</th>
-			<th>
-				Date Paid
-			</th>
-		</tr>
+	<tr>
+		<th>
+			Name
+		</th>
+		<th>
+			Current Balance
+		</th>
+		<th>
+			Date Paid
+		</th>
+	</tr>
 	</thead>
 	<tbody>
-		<% @sponsors.each do |sponsor| %>
+	<% @sponsors.each do |sponsor| %>
 		<tr class="sponsor">
-			<td><%= link_to "#{sponsor.first_name} #{sponsor.last_name}", sponsor_path(sponsor.id)%></td>
+			<td><%= link_to "#{sponsor.first_name} #{sponsor.last_name}", sponsor_path(sponsor.id) %></td>
 			<td><%= number_to_currency sponsor.current_balance %></td>
 			<td><%= sponsor.date_paid.strftime("%d/%m/%Y") if sponsor.date_paid %></td>
 		</tr>
-		<% end %>	
+	<% end %>
 	</tbody>
 </table>

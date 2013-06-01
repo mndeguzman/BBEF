@@ -1,40 +1,40 @@
 <% content_for(:title) { 'Students' } %>
 
 <div class="row">
-  <div class="span well">
-    <div class="span12">
-       <h2>Add a new student</h2>
-    </div>
-        <%= form_for(@student) do |f| %>
+	<div class="span well">
+		<div class="span12">
+			<h2>Add a new student</h2>
+		</div>
+		<%= form_for(@student) do |f| %>
 
-    <div class="span5">
-          <%= f.label :first_name , "First Name"%>
-          <%= f.text_field :first_name %>
+			<div class="span5">
+				<%= f.label :first_name, "First Name" %>
+				<%= f.text_field :first_name %>
 
-          <%= f.label :last_name , "Last Name"%>
-          <%= f.text_field :last_name %>
+				<%= f.label :last_name, "Last Name" %>
+				<%= f.text_field :last_name %>
 
-          <%= f.label :dob , "Date of Birth"%>
-          <%= f.text_field :dob, value: "#{@student.dob.strftime("%d/%m/%Y") if @student.dob }"%>
-      </div>
+				<%= f.label :dob, "Date of Birth" %>
+				<%= f.text_field :dob, value: "#{@student.dob.strftime("%d/%m/%Y") if @student.dob }" %>
+			</div>
 
-      <div class="span5">
+			<div class="span5">
 
 
-          <%= f.label :grade , "Grade"%>
-          <%= f.text_field :grade %> 
+				<%= f.label :grade, "Grade" %>
+				<%= f.text_field :grade %>
 
-          <%= f.label :institute , "School/College"%>
-          <%= f.text_field :institute %> 
+				<%= f.label :institute, "School/College" %>
+				<%= f.text_field :institute %>
 
-      </div>
+			</div>
 
-      <div class="span12">
-            <%= f.submit "Save", class: "tiny submit button", id: "save_student" %>
-            <%= link_to "Cancel", student_path(@student.id), id: "create_student_cancel" , class: 'tiny cancel button'%>
-        <% end %>
-      </div>
-      
-      </div>
-  </div>
+			<div class="span12">
+				<%= f.submit "Save", class: "tiny submit button", id: "save_student" %>
+				<%= link_to "Cancel", student_path(@student.id), id: "create_student_cancel", class: 'tiny cancel button' %>
+		<% end %>
+		</div>
+
+	</div>
+</div>
 </div>

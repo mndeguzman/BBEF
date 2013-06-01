@@ -1,21 +1,21 @@
 <% content_for(:title) { 'Students' } %>
 
-<%= link_to "Create Student",    new_student_path, id: "student_create_link" , class: 'tiny button'%>
+<%= link_to "Create Student", new_student_path, id: "student_create_link", class: 'tiny button' %>
 <table class="table table-striped" id="students">
-  <tr>
-    <th>Name</th>
-    <th>DOB</th>
-    <th>Grade</th>
-    <th>Institute</th>
-  </tr>
- <% @students.each do |student| %>
- <tr class="student">
-    <td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id)%></td>
-    <td><%= student.dob.strftime("%d/%m/%Y") %></td>
-    <td><%= student.grade%></td>
-    <td><%= student.institute%></td>
+	<tr>
+		<th>Name</th>
+		<th>DOB</th>
+		<th>Grade</th>
+		<th>Institute</th>
+	</tr>
+	<% @students.each do |student| %>
+		<tr class="student">
+			<td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id) %></td>
+			<td><%= student.dob.strftime("%d/%m/%Y") %></td>
+			<td><%= student.grade %></td>
+			<td><%= student.institute %></td>
 
-  </tr>
-  <% end %>
+		</tr>
+	<% end %>
 
 </table>
