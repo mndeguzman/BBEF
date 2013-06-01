@@ -1,0 +1,12 @@
+<table id="sponsors" >
+<thead><tr><th>Name</th><th>Current Balance</th><th>Date Paid</th></tr></thead>
+<tbody>
+<% @sponsors.each do |sponsor| %>
+	<tr class="sponsor">
+		<td><%= sponsor.first_name %> <%= sponsor.last_name %></td>
+		<td><%= sponsor.current_balance %></td>
+		<td><%= sponsor.date_paid %></td>
+	</tr>
+<% end %>	
+</tbody>
+</table>
