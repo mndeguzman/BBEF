@@ -16,9 +16,21 @@
 <div id="associate_sponsor">
 	<%= form_tag(associate_sponsor_student_path(@student), :method => "post") do %>
 	    <div class="row">
-		    <div class="span2"> 			 		 	
+		    <div class="span2"> 			
+
 				<%= label_tag(:sponsor_name, "Sponsor") %>
-			 	<%= text_field_tag(:sponsor_name ,content = (@student.sponsor ? @student.sponsor.full_name : nil )) %>
+
+        <% allowed_options = "" 
+            @sponsors.each do |sponsor|
+            	is_selected = ""
+            	if @student.sponsor && sponsor.id == @student.sponsor.id
+            		is_selected = "selected"
+            	end
+            	puts "is_selected #{is_selected}"
+            	allowed_options += "<option value='#{sponsor.id}' #{is_selected}>#{sponsor.full_name} (#{sponsor.postcode})</option>"
+            end
+         %>   
+		    <%= select_tag(:sponsor_name, allowed_options.html_safe)%> 	
 			</div>
 			<div> 			 		 	
 				<%= submit_tag("Associate Sponsor", id: "associate_sponsor",:class => "button") %>  

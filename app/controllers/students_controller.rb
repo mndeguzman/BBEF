@@ -22,6 +22,7 @@ class StudentsController < ApplicationController
 	end		
 
 	def show
+		@sponsors = Sponsor.order("last_name").all
 	end	
 
 	def edit
@@ -33,9 +34,8 @@ class StudentsController < ApplicationController
 	end			
 
 	def associate_sponsor
-	    params["sponsor_name"] =~ /(.*) (.*)/
-	    first_name = $1
-	    sponsor = Sponsor.find_by_first_name first_name
+		puts "params['sponsor_name'] #{params['sponsor_name']}"
+	    sponsor = Sponsor.find(params["sponsor_name"])
 	    @student.sponsor = sponsor 
 	    @student.save!
 	    redirect_to student_path(@student)

@@ -24,7 +24,14 @@ module TableHelper
       end
       row_values
   end
+  puts "table_header+table_results #{table_header+table_results}"
   table.diff!(table_header+table_results)
  end
+
+def self.select_by_value(id, value,page)
+  option_xpath = "//*[@id='#{id}']/option[@value='#{value}']"
+  option = page.find(:xpath, option_xpath).text
+  select(option, :from => id)
+end
 
 end

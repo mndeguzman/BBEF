@@ -1,7 +1,14 @@
 When /^I choose to associate the sponsor "(.*?)" with the current student$/ do |sponsor_name|	
-  fill_in "sponsor_name",         with: sponsor_name
+	sponsor_name =~ /(.*) (.*)/
+    first_name = $1
+    sponsor = Sponsor.find_by_first_name first_name
 
-  click_button "associate_sponsor"
+    sponsor_string_as_displayed = "#{sponsor.full_name} (#{sponsor.postcode})"
+
+    page.select(sponsor_string_as_displayed, :from => "sponsor_name")
+
+
+    click_button "associate_sponsor"
 end
 
 Then /^the student "(.*?)" is associated with sponsor "(.*?)"$/ do |student_name, sponsor_name|
@@ -13,7 +20,13 @@ Then /^the student "(.*?)" is associated with sponsor "(.*?)"$/ do |student_name
 end
 
 Then /^the current student is associated with "(.*?)"$/ do |expected_sponsor|
-	page.find("#sponsor_name").value.should == expected_sponsor
+	expected_sponsor =~ /(.*) (.*)/
+    first_name = $1
+    sponsor = Sponsor.find_by_first_name first_name
+    puts "page.find('#sponsor_name').value #{page.find('#sponsor_name').value}"
+    puts "sponsor.id #{sponsor.id}"
+
+    page.has_select?("#sponsor_name", selected: sponsor.id)
 end
 
 When /^I choose to view the sponsor of "(.*?)"$/  do |student_name|
@@ -26,7 +39,13 @@ When /^I choose to view the sponsor of "(.*?)"$/  do |student_name|
 end
 
 
-
+When /^I can associate the student with$/ do |expected_sponsors|
+   allowed_values = []
+   expected_sponsors.hashes.each do | row| 
+   	allowed_values << row["sponsor"]
+   end	
+   page.has_select?("#sponsor_name", options: allowed_values)
+end
 
 
 Then /^I print out the students and the sponsers$/ do 	
