@@ -7,14 +7,15 @@
 		<th>DOB</th>
 		<th>Grade</th>
 		<th>Institute</th>
+		<th>Sponsor</th>
 	</tr>
 	<% @students.each do |student| %>
-		<tr class="student">
+		<tr id="<%=student.id%>" class="student">
 			<td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id) %></td>
 			<td><%= student.dob.strftime("%d/%m/%Y") %></td>
 			<td><%= student.grade %></td>
 			<td><%= student.institute %></td>
-
+			<td class="sponsor_name" ><%= link_to("#{student.sponsor.full_name}", sponsor_path(student.sponsor)) if student.sponsor %></td>
 		</tr>
 	<% end %>
 

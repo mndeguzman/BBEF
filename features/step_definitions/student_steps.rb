@@ -3,7 +3,7 @@ When /^I view the list of students$/ do
 end
 
 Then /^I shall see the following students$/  do |expected_students|
-	TableHelper.compareTable(expected_students,["Name","DOB","Grade","Institute"],"student",page)
+	TableHelper.compareTable(expected_students,["Name","DOB","Grade","Institute","Sponsor"],"student",page)
 end
 
 When /^I choose to add a student$/ do
@@ -28,6 +28,10 @@ end
 
 When(/^I choose to view the student "(.*?)"$/) do |student_name|
   click_link student_name
+end
+
+Then(/^I choose to view the students$/) do
+  click_link "students-menu-item"
 end
 
 Then(/^I see the following details of a student$/) do |expected_values|

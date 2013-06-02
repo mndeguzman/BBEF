@@ -20,7 +20,6 @@
   </title>
 
 	<%# Stylesheets %>
-  <%= stylesheet_link_tag    'normalize' %>
   <%= stylesheet_link_tag 'application' %>
 
 	<%# Global header javascript %>
@@ -56,6 +55,9 @@
 					<li>
 						<%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "tiny button" %>
 					</li>
+          <li>
+            <a href="https://login.mailchimp.com" class="tiny button">Newsletters</a>
+          </li>
 				</ul>
 			</div>
     </div>
@@ -85,7 +87,7 @@
 	<script type="text/javascript">
 		document.write('<script src=' + ('__proto__' in {} ? '/assets/vendor/zepto' : '/assets/vendor/jquery') + '.js><\/script>');
 	</script>
-  <%= javascript_include_tag "foundation" %>
+  <%= javascript_include_tag "foundation/foundation" %>
 	<script type="text/javascript">
 		$(document).foundation();
 	</script>

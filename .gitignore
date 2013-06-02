@@ -21,3 +21,6 @@
 # ignore some IDE files
 .idea/
 *.iml
+
+# ignore SASS cache
+.sass-cache
