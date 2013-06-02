@@ -15,7 +15,7 @@
 				<%= f.text_field :last_name %>
 
 				<%= f.label :dob, "Date of Birth" %>
-				<%= f.text_field :dob, value: "#{@student.dob.strftime("%d/%m/%Y") if @student.dob }" %>
+				<%= f.date_select(:dob, :start_year => Time.now.year - 5, :end_year => Time.now.year - 40, :order => [:day, :month, :year]) %>
 			</div>
 
 			<div class="span5">
