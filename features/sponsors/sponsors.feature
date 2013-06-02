@@ -64,3 +64,11 @@ Scenario: i can edit a sponsor
      | Mobile          | 0400 123 456          |
      | Email           | first3.last3@test.com |
      | Contact Method  | phone                 |
+
+Scenario: I can edit a Sponsor from the Sponsor list view
+    Given the following sponsors exist
+    | first_name | last_name | date_paid  | current_balance |
+    | first1     | last1     | 30/12/2012 | -3.00           |
+    When I view the list of sponsors
+    And I choose to edit the sponsor "first1 last1"
+    Then I see the edit page for sponsor "first1 last1"
