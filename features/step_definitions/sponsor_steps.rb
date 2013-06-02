@@ -59,3 +59,7 @@ Then(/^I enter and save the following details of a sponsor$/) do |expected_value
   
   click_button "save_sponsor"
 end
+
+Then(/^I am viewing the sponsor "(.*?)"$/) do |expected_sponsor|
+  page.find("#sponsor_name").text.should == expected_sponsor
+end

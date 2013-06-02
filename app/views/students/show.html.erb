@@ -22,7 +22,7 @@
 	    <div class="row">
 		    <div class="span2"> 			 		 	
 				<%= label_tag(:sponsor_name, "Sponsor") %>
-			 	<%= text_field_tag(:sponsor_name) %>
+			 	<%= text_field_tag(:sponsor_name ,content = (@student.sponsor ? @student.sponsor.full_name : nil )) %>
 			</div>
 			<div> 			 		 	
 				<%= submit_tag("Associate Sponsor", id: "associate_sponsor",:class => "button") %>  

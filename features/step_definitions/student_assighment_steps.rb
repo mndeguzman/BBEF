@@ -12,6 +12,23 @@ Then /^the student "(.*?)" is associated with sponsor "(.*?)"$/ do |student_name
     "#{student.sponsor.first_name} #{student.sponsor.last_name}".should == sponsor_name
 end
 
+Then /^the current student is associated with "(.*?)"$/ do |expected_sponsor|
+	page.find("#sponsor_name").value.should == expected_sponsor
+end
+
+When /^I choose to view the sponsor of "(.*?)"$/  do |student_name|
+	student_name =~ /(.*) (.*)/
+    first_name = $1
+    student = Student.find_by_first_name first_name
+
+    page.find("##{student.id} .sponsor_name a").click
+
+end
+
+
+
+
+
 Then /^I print out the students and the sponsers$/ do 	
   Student.find(:all).each do |student|
   	pp student
