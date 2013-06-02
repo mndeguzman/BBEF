@@ -1,6 +1,5 @@
 Feature: i can assign a sponser to a student
 
-@current
 Scenario: i can associate a student with a sponser
     Given the following sponsors exist
     | first_name | last_name | date_paid  | current_balance |

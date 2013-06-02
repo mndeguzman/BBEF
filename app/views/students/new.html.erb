@@ -7,6 +7,20 @@
 		</div>
 		<%= form_for(@student) do |f| %>
 
+			<% if f.object.errors.any? %>
+			  <div id="error_explanation">
+			    <div class="alert alert-error">
+			      The form contains <%= pluralize(f.object.errors.count, "error") %>.
+			    </div>
+			    <ul>
+			    <% f.object.errors.full_messages.each do |msg| %>
+			      <li>* <%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+
+
 			<div class="span5">
 				<%= f.label :first_name, "First Name" %>
 				<%= f.text_field :first_name %>
