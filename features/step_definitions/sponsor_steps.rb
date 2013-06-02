@@ -22,7 +22,11 @@ When /^I attempt to create a sponsor with the following values$/ do | form_value
     address: 'Addresss', 
     city: 'City', 
     state: 'State', 
-    postcode: 'Postcode'
+    postcode: 'Postcode',
+    home_phone: "Home Phone",
+    mobile: "Mobile",
+    email: "Email",
+    contact_method: "Contact Method"
     }.each do |field, title|
     fill_in "sponsor_#{field}", with: sponsor_form_values[title] if sponsor_form_values[title] 
   end
@@ -44,7 +48,11 @@ Then(/^I see the following details of a sponsor$/) do |expected_values|
     address: 'Addresss', 
     city: 'City', 
     state: 'State', 
-    postcode: 'Postcode'
+    postcode: 'Postcode',
+    home_phone: "Home Phone",
+    mobile: "Mobile",
+    email: "Email",
+    contact_method: "Contact Method"
     }.each do |field, title|
     page.find("#sponsor_#{field}").text.should == sponsor_values_to_fill_in[title] if sponsor_values_to_fill_in[title]
   end
@@ -66,7 +74,11 @@ Then(/^I see prepopulated the details of a sponsor$/) do |expected_values|
     address: 'Addresss', 
     city: 'City', 
     state: 'State', 
-    postcode: 'Postcode'
+    postcode: 'Postcode',
+    home_phone: "Home Phone",
+    mobile: "Mobile",
+    email: "Email",
+    contact_method: "Contact Method"
     }.each do |field, title|
     page.find("#sponsor_#{field}").value.should == sponsor_values_to_fill_in[title] if sponsor_values_to_fill_in[title]
   end
@@ -84,11 +96,15 @@ Then(/^I enter and save the following details of a sponsor$/) do |expected_value
     address: 'Addresss', 
     city: 'City', 
     state: 'State', 
-    postcode: 'Postcode'
+    postcode: 'Postcode',
+    home_phone: "Home Phone",
+    mobile: "Mobile",
+    email: "Email",
+    contact_method: "Contact Method"
     }.each do |field, title|
     fill_in "sponsor_#{field}", with: sponsor_form_values[title] if sponsor_form_values[title] 
   end
-  
+
   click_button "save_sponsor"
 end
 
