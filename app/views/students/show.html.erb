@@ -14,5 +14,19 @@
 		</div>
 	</div>
 
-	<%= link_to "Edit Student", edit_student_path(@student.id), id: "edit_student_link", class: 'tiny submit button' %>
+	<%= link_to "Edit Student", edit_student_path(@student), id: "edit_student_link", class: 'tiny submit button' %>
+</div>
+
+<div id="associate_sponsor">
+	<%= form_tag(associate_sponsor_student_path(@student), :method => "post") do %>
+	    <div class="row">
+		    <div class="span2"> 			 		 	
+				<%= label_tag(:sponsor_name, "Sponsor") %>
+			 	<%= text_field_tag(:sponsor_name) %>
+			</div>
+			<div> 			 		 	
+				<%= submit_tag("Associate Sponsor", id: "associate_sponsor",:class => "button") %>  
+			</div>
+		</div>				
+	<% end %> 
 </div>

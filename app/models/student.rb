@@ -1,3 +1,5 @@
 class Student < ActiveRecord::Base
-  attr_accessible :course, :dob, :first_name, :grade, :institute, :last_name, :num_year, :program_end, :program_start, :sex
+  attr_accessible :course, :dob, :first_name, :grade, :institute, :last_name, :num_year, :program_end, :program_start, :sex,:sponsor
+  belongs_to :sponsor
+
 end

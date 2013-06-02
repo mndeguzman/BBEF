@@ -16,7 +16,11 @@ BBEF::Application.routes.draw do
   #   resources :products
 
    #Sample resource route with options:
-  resources :students
+  resources :students do
+    member do
+       post 'associate_sponsor'
+    end
+  end  
 
   resources :sponsors
 

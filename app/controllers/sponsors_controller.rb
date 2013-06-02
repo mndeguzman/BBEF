@@ -24,7 +24,9 @@ class SponsorsController < ApplicationController
   def update
       @sponsor.update_attributes(params[:sponsor])
       redirect_to sponsor_path(@sponsor.id)
-  end       
+  end   
+
+  
 
   private 
   def find_sponsor

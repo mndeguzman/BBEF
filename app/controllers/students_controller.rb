@@ -24,8 +24,17 @@ class StudentsController < ApplicationController
 
 	def update
     	@student.update_attributes(params[:student])
-	    redirect_to student_path(@student.id)
-	end				
+	    redirect_to student_path(@student)
+	end			
+
+	def associate_sponsor
+	    params["sponsor_name"] =~ /(.*) (.*)/
+	    first_name = $1
+	    sponsor = Sponsor.find_by_first_name first_name
+	    @student.sponsor = sponsor 
+	    @student.save!
+	    redirect_to student_path(@student)
+  	end  	
 
   private 
   def find_student
