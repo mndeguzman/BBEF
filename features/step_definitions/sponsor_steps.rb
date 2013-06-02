@@ -14,10 +14,18 @@ end
 When /^I attempt to create a sponsor with the following values$/ do | form_values |
   sponsor_form_values = form_values.rows_hash
 
-  fill_in "sponsor_first_name",      with: sponsor_form_values['First Name']
-  fill_in "sponsor_last_name",       with: sponsor_form_values['Last Name']
-  fill_in "sponsor_current_balance", with: sponsor_form_values['Current Balance']
-  fill_in "sponsor_date_paid",       with: sponsor_form_values['Date Paid']
+  { 
+    first_name: "First Name", 
+    last_name: "Last Name", 
+    current_balance: "Current Balance", 
+    date_paid: "Date Paid", 
+    address: 'Addresss', 
+    city: 'City', 
+    state: 'State', 
+    postcode: 'Postcode'
+    }.each do |field, title|
+    fill_in "sponsor_#{field}", with: sponsor_form_values[title] if sponsor_form_values[title] 
+  end
 
   click_button "create_sponsor"
 end
@@ -29,9 +37,17 @@ end
 Then(/^I see the following details of a sponsor$/) do |expected_values|
   sponsor_values_to_fill_in = expected_values.rows_hash
 
-  page.find("#sponsor_name").text.should == sponsor_values_to_fill_in['Name'] if sponsor_values_to_fill_in['Name']
-  page.find("#sponsor_current_balance").text.should == sponsor_values_to_fill_in['Current Balance'] if sponsor_values_to_fill_in['Current Balance']
-  page.find("#sponsor_date_paid").text.should == sponsor_values_to_fill_in['Date Paid'] if sponsor_values_to_fill_in['Date Paid']
+  { 
+    name: "Name", 
+    current_balance: "Current Balance", 
+    date_paid: "Date Paid", 
+    address: 'Addresss', 
+    city: 'City', 
+    state: 'State', 
+    postcode: 'Postcode'
+    }.each do |field, title|
+    page.find("#sponsor_#{field}").text.should == sponsor_values_to_fill_in[title] if sponsor_values_to_fill_in[title]
+  end
 
 end
 
@@ -42,20 +58,36 @@ end
 Then(/^I see prepopulated the details of a sponsor$/) do |expected_values|
   sponsor_values_to_fill_in = expected_values.rows_hash
 
-  page.find("#sponsor_first_name").value.should ==  sponsor_values_to_fill_in['First Name']
-  page.find("#sponsor_last_name").value.should == sponsor_values_to_fill_in['Last Name']
-  page.find("#sponsor_current_balance").value.should == sponsor_values_to_fill_in['Current Balance'] if sponsor_values_to_fill_in['Current Balance']
-  page.find("#sponsor_date_paid").value.should == sponsor_values_to_fill_in['Date Paid'] if sponsor_values_to_fill_in['Date Paid']
+  { 
+    first_name: "First Name", 
+    last_name: "Last Name", 
+    current_balance: "Current Balance", 
+    date_paid: "Date Paid", 
+    address: 'Addresss', 
+    city: 'City', 
+    state: 'State', 
+    postcode: 'Postcode'
+    }.each do |field, title|
+    page.find("#sponsor_#{field}").value.should == sponsor_values_to_fill_in[title] if sponsor_values_to_fill_in[title]
+  end
 end
 
 
 Then(/^I enter and save the following details of a sponsor$/) do |expected_values|
   sponsor_form_values = expected_values.rows_hash
 
-  fill_in "sponsor_first_name",         with: sponsor_form_values['First Name'] if sponsor_form_values['First Name'] 
-  fill_in "sponsor_last_name",         with: sponsor_form_values['Last Name'] if sponsor_form_values['Last Name'] 
-  fill_in "sponsor_current_balance", with: sponsor_form_values['Current Balance'] if sponsor_form_values['Current Balance'] 
-  fill_in "sponsor_date_paid",       with: sponsor_form_values['Date Paid'] if sponsor_form_values['Date Paid'] 
+  { 
+    first_name: "First Name", 
+    last_name: "Last Name", 
+    current_balance: "Current Balance", 
+    date_paid: "Date Paid", 
+    address: 'Addresss', 
+    city: 'City', 
+    state: 'State', 
+    postcode: 'Postcode'
+    }.each do |field, title|
+    fill_in "sponsor_#{field}", with: sponsor_form_values[title] if sponsor_form_values[title] 
+  end
   
   click_button "save_sponsor"
 end

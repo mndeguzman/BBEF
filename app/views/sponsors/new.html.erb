@@ -30,6 +30,20 @@
 				<%= f.text_field :date_paid %>
 			</div>
 
+			<div class="span5">
+				<%= f.label :address, "Address" %>
+				<%= f.text_field :address %>
+
+				<%= f.label :city, "City" %>
+				<%= f.text_field :city %>
+
+				<%= f.label :state, "State" %>
+				<%= f.text_field :state %>
+
+				<%= f.label :postcode, "Postcode" %>
+				<%= f.text_field :postcode %>
+			</div>
+
 			<div class="span12">
 				<%= f.submit "Save", class: "tiny submit button", id: "create_sponsor" %>
 				<%= link_to "Cancel", sponsors_path, id: "create_sponsor_cancel", class: 'tiny cancel button' %>

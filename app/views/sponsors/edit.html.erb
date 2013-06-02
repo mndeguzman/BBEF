@@ -21,6 +21,20 @@
 				<%= f.text_field :date_paid, value: @sponsor.date_paid && @sponsor.date_paid.strftime("%d/%m/%Y") %>
 			</div>
 
+			<div class="span5">
+				<%= f.label :address, "Address" %>
+				<%= f.text_field :address %>
+
+				<%= f.label :city, "City" %>
+				<%= f.text_field :city %>
+
+				<%= f.label :state, "State" %>
+				<%= f.text_field :state %>
+
+				<%= f.label :postcode, "Postcode" %>
+				<%= f.text_field :postcode %>
+			</div>
+
 			<div class="span12">
 				<%= f.submit "Save", class: "tiny submit button", id: "save_sponsor" %>
 				<%= link_to "Cancel", sponsor_path(@sponsor.id), id: "create_sponsor_cancel", class: 'tiny cancel button' %>

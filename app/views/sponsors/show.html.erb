@@ -9,6 +9,17 @@
 			<div>Date Paid :
 				<span id="sponsor_date_paid"><%= @sponsor.date_paid.strftime("%d/%m/%Y") if @sponsor.date_paid %></span></div>
 		</div>
+
+		<div class="span5">
+			<div>Address :
+				<span id="sponsor_address"><%= @sponsor.address %></span></div>
+			<div>City :
+				<span id="sponsor_city"><%= @sponsor.city %></span></div>
+			<div>State :
+				<span id="sponsor_state"><%= @sponsor.state %></span></div>
+			<div>Postcode :
+				<span id="sponsor_postcode"><%= @sponsor.postcode %></span></div>
+		</div>
 	</div>
 
 	<%= link_to "Edit sponsor", edit_sponsor_path(@sponsor.id), id: "edit_sponsor_link", class: 'tiny submit button' %>
