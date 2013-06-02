@@ -61,7 +61,6 @@ BBEF::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.assets.precompile += %w( public.js public.css  )
   config.assets.precompile += ['vendor/*.js']
   config.assets.precompile += ['foundation/*.js']
 
