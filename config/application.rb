@@ -58,5 +58,10 @@ module BBEF
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Define additional asset files/folders to precompile
+    # It's useful when your frontend needs to include web resources asynchronously or with some decision tree
+    # http://stackoverflow.com/questions/12613980/how-do-i-use-config-assets-precompile-for-directories-rather-than-single-files
+    config.assets.precompile += ['vendor/*.js']
   end
 end
