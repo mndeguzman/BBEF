@@ -62,6 +62,6 @@ module BBEF
     # Define additional asset files/folders to how-do-i-use-config-assets-precompile-for-directories-rather-than-single-files
     # It's useful when your frontend needs to include web resources asynchronously or with some decision tree
     # http://stackoverflow.com/questions/12613980/how-do-i-use-config-assets-precompile-for-directories-rather-than-single-files
-    config.assets.precompile += ['vendor/*.js', 'foundation/*.js']
+
   end
 end
