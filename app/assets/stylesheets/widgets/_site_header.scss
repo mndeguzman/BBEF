@@ -4,7 +4,16 @@
 	}
 
 	.site_subheader {
-		@include subtleText;
 		padding-top: emCalc(5px);
+		text-align: right;
+	}
+
+	.organisation_title {
+		@include subtleText;
+	}
+	.organisation_logo {
+		margin-left: emCalc(5px);
+		width: 22%;
+		float: right;
 	}
 }

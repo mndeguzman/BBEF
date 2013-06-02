@@ -35,11 +35,14 @@
 		<a href="#site_contents" class="accessibility_link">Jump to site contents</a>
 
     <div class="primary_header row">
-      <div class="site_subheader columns small-12">
-        Bagong Barrio Education Fund
-        <%= image_tag 'logo.small.png', alt: 'Bagong Bario Education Fund Logo'%>
+      <div class="site_subheader columns small-12  large-3 push-9">
+        <%= image_tag 'logo.small.png', alt: 'Bagong Bario Education Fund Logo', class: 'organisation_logo'%>
+
+        <span class="organisation_title">
+          Bagong Barrio Education Fund
+        </span>
       </div>
-      <h1 class="page_title columns small-12">
+      <h1 class="page_title columns small-12 large-9 pull-3">
         <%= content_for?(:title) ? yield(:title) : "Page title untitled" %>
       </h1>
     </div>
