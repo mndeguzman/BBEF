@@ -3,55 +3,77 @@
 <div class="view_sponsor_show">
 	<div class="row">
 		<div class="columns small-12 large-6">
-			<div>
-				Name: 
-				<span id="sponsor_name"><%= "#{@sponsor.first_name} #{@sponsor.last_name}" %></span>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Name: 
+				</span>
+				<span class="profile_prop_value" id="sponsor_name"><%= "#{@sponsor.first_name} #{@sponsor.last_name}" %></span>
 			</div>
-			<div>
-				Current Balance:
-				<span id="sponsor_current_balance"><%= number_to_currency @sponsor.current_balance %></span>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Current Balance:
+				</span>
+				<span class="profile_prop_value" id="sponsor_current_balance"><%= number_to_currency @sponsor.current_balance %></span>
 			</div>
-			<div>
-				Date Paid:
-				<span id="sponsor_date_paid"><%= @sponsor.date_paid.strftime("%d/%m/%Y") if @sponsor.date_paid %></span>
-			</div>
-		</div>
-
-		<div class="columns small-12 large-6">
-			<div>
-				Address:
-				<span id="sponsor_address"><%= @sponsor.address %></span>
-			</div>
-			<div>
-				City:
-				<span id="sponsor_city"><%= @sponsor.city %></span>
-			</div>
-			<div>
-				State:
-				<span id="sponsor_state"><%= @sponsor.state %></span>
-			</div>
-			<div>
-				Postcode:
-				<span id="sponsor_postcode"><%= @sponsor.postcode %></span>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Date Paid:
+				</span>
+				<span class="profile_prop_value" id="sponsor_date_paid"><%= @sponsor.date_paid.strftime("%d/%m/%Y") if @sponsor.date_paid %></span>
 			</div>
 		</div>
 
 		<div class="columns small-12 large-6">
-			<div>
-				Home Phone:
-				<span id="sponsor_home_phone"><%= @sponsor.home_phone %></span>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Address:
+				</span>
+				<span class="profile_prop_value" id="sponsor_address"><%= @sponsor.address %></span>
 			</div>
-			<div>
-				Mobile:
-				<span id="sponsor_mobile"><%= @sponsor.mobile %></span>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					City:
+				</span>
+				<span class="profile_prop_value" id="sponsor_city"><%= @sponsor.city %></span>
 			</div>
-			<div>
-				Email:
-				<span id="sponsor_email"><%= @sponsor.email %></span>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					State:
+				</span>
+				<span class="profile_prop_value" id="sponsor_state"><%= @sponsor.state %></span>
 			</div>
-			<div>
-				Contact Method:
-				<span id="sponsor_contact_method"><%= @sponsor.contact_method %></span>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Postcode:
+				</span>
+				<span class="profile_prop_value" id="sponsor_postcode"><%= @sponsor.postcode %></span>
+			</div>
+		</div>
+
+		<div class="columns small-12 large-6">
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Home Phone:
+				</span>
+				<span class="profile_prop_value" id="sponsor_home_phone"><%= @sponsor.home_phone %></span>
+			</div>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Mobile:
+				</span>
+				<span class="profile_prop_value" id="sponsor_mobile"><%= @sponsor.mobile %></span>
+			</div>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Email:
+				</span>
+				<span class="profile_prop_value" id="sponsor_email"><%= @sponsor.email %></span>
+			</div>
+			<div class="profile_prop">
+				<span class="profile_prop_name">
+					Contact Method:
+				</span>
+				<span class="profile_prop_value" id="sponsor_contact_method"><%= @sponsor.contact_method %></span>
 			</div>
 		</div>
 	</div>

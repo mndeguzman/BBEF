@@ -1,0 +1,8 @@
+.profile_prop {
+	& > .profile_prop_name {
+		color: lighten(black, 50%);
+	}
+	& > .profile_prop_value {
+		//color: lighten(black, 50%);
+	}
+}
