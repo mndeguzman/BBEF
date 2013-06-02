@@ -62,7 +62,8 @@ BBEF::Application.configure do
   config.active_support.deprecation = :notify
 
   config.assets.precompile += %w( public.js public.css  )
-  config.assets.precompile += ['vendor/*.js', 'foundation/*.js']
+  config.assets.precompile += ['vendor/*.js']
+  config.assets.precompile += ['foundation/*.js']
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
