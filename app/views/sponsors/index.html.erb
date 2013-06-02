@@ -22,11 +22,11 @@
 		<tbody>
 			<% @sponsors.each do |sponsor| %>
 			<tr class="sponsor" id="<%= "sponsor_list_item_#{sponsor.id}" %>">
-				<td><%= link_to "#{sponsor.first_name} #{sponsor.last_name}", sponsor_path(sponsor.id), title:"View sponsor" %></td>
+				<td><%= link_to "#{sponsor.first_name} #{sponsor.last_name}", sponsor_path(sponsor.id), title:"View sponsor (#{sponsor.first_name} #{sponsor.last_name})" %></td>
 				<td><%= number_to_currency sponsor.current_balance %></td>
 				<td><%= sponsor.date_paid.strftime("%d/%m/%Y") if sponsor.date_paid %></td>
 				<td class="action_link">
-					<%= link_to "Edit", edit_sponsor_path(sponsor.id), title:"Edit sponsor", class:"sponsor_edit_link" %>
+					<%= link_to "Edit", edit_sponsor_path(sponsor.id), title:"Edit sponsor (#{sponsor.first_name} #{sponsor.last_name})", class:"sponsor_edit_link" %>
 				</td>
 			</tr>
 			<% end %>
