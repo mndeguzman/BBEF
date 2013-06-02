@@ -1,3 +1,11 @@
+# returns a Sponsor record by full name (first + last name)
+def getSponsorByName(sponsor_name)
+  sponsor_name =~ /(.*) (.*)/
+    first_name = $1
+    sponsor = Sponsor.find_by_first_name first_name
+  sponsor
+end
+
 When(/^I view the list of sponsors$/) do
 	visit sponsors_path
 end
@@ -110,4 +118,22 @@ end
 
 Then(/^I am viewing the sponsor "(.*?)"$/) do |expected_sponsor|
   page.find("#sponsor_name").text.should == expected_sponsor
+end
+
+When(/^I choose to edit the sponsor "(.*)"$/) do |sponsor_name|
+  sponsor = getSponsorByName sponsor_name
+
+  page.find("#sponsor_list_item_#{sponsor.id} a.sponsor_edit_link").click
+end
+
+Then(/^I see the edit page for sponsor "(.*)"$/) do |sponsor_name|
+  sponsor = getSponsorByName sponsor_name
+  sponsor_name =~ /(.*) (.*)/
+    first_name = $1
+    last_name = $2
+
+  within(".view_sponsor_edit #edit_sponsor_#{sponsor.id}") do
+    page.find('#sponsor_first_name').value.should == first_name
+    page.find('#sponsor_last_name').value.should == last_name
+  end
 end
