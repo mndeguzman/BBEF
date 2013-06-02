@@ -20,6 +20,17 @@
 			<div>Postcode :
 				<span id="sponsor_postcode"><%= @sponsor.postcode %></span></div>
 		</div>
+
+		<div class="span5">
+			<div>Home Phone :
+				<span id="sponsor_home_phone"><%= @sponsor.home_phone %></span></div>
+			<div>Mobile :
+				<span id="sponsor_mobile"><%= @sponsor.mobile %></span></div>
+			<div>Email :
+				<span id="sponsor_email"><%= @sponsor.email %></span></div>
+			<div>Contact Method :
+				<span id="sponsor_contact_method"><%= @sponsor.contact_method %></span></div>
+		</div>
 	</div>
 
 	<%= link_to "Edit sponsor", edit_sponsor_path(@sponsor.id), id: "edit_sponsor_link", class: 'tiny submit button' %>
