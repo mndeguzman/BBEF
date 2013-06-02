@@ -1,12 +1,8 @@
-<% content_for(:title) { 'Sponsors' } %>
+<% content_for(:title) { 'Edit sponsor' } %>
 
-<div class="row">
+<div class="view_sponsor_edit row">
 	<div class="span well">
 		<%= form_for(@sponsor) do |f| %>
-			<div class="span12">
-				<h2>Edit sponsor</h2>
-			</div>
-
 			<div class="span5">
 				<%= f.label :first_name, "First Name" %>
 				<%= f.text_field :first_name %>

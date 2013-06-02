@@ -1,14 +1,15 @@
 <% content_for(:title) { 'Sponsors' } %>
 
-<div class="container">
-  <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-  <%= yield %>
-</div>
+<div class="view_sponsor_new">
+	<div class="container">
+		<% flash.each do |key, value| %>
+		<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
+		<%= yield %>
+	</div>
 
-<div class="row">
-	<div class="span well"> <%= form_for(@sponsor) do |f| %>
+	<div class="row">
+		<div class="span well"> <%= form_for(@sponsor) do |f| %>
 			<div class="span12">
 				<h2>Add a new sponsor</h2>
 			</div>
@@ -61,6 +62,8 @@
 				<%= link_to "Cancel", sponsors_path, id: "create_sponsor_cancel", class: 'tiny cancel button' %>
 			</div>
 
-		<% end %></div>
-</div>
+			<% end %></div>
+		</div>
+	</div>
+
 </div>
