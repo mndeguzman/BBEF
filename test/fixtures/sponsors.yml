@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  first_name: MyString
-  last_name: MyString
+  first_name: Sponge
+  last_name: Bob
   current_balance: 9.99
   date_paid: 2013-06-01
 
 two:
-  first_name: MyString
-  last_name: MyString
-  current_balance: 9.99
-  date_paid: 2013-06-01
+  first_name: Aqua
+  last_name: Rium
+  current_balance: 59.99
+  date_paid: 2012-08-31
