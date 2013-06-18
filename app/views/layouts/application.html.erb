@@ -29,61 +29,64 @@
 </head>
 
 <body>
-  <header class="site_header">
-		<%# Accessibility links %>
-		<a href="#primary_nav" class="accessibility_link">Jump to site navigation</a>
-		<a href="#site_contents" class="accessibility_link">Jump to site contents</a>
 
-    <div class="primary_header row">
-      <div class="site_subheader columns small-12  large-3 push-9">
-        <%= image_tag 'logo.small.png', alt: 'Bagong Bario Education Fund Logo', class: 'organisation_logo'%>
+<div class="contain-to-grid">
+  <nav class="top-bar">
+    <%= image_tag 'logo.small.png', width: '70', alt: 'Bagong Bario Education Fund Logo', class: 'organisation_logo'%>
 
-        <span class="organisation_title">
-          Bagong Barrio Education Fund
-        </span>
-      </div>
-      <h1 class="page_title columns small-12 large-9 pull-3">
-        <%= content_for?(:title) ? yield(:title) : "Page title untitled" %>
-      </h1>
-    </div>
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="/">BBEF</a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
-    <div class="primary_nav row">
-      <a name="primary_nav"></a>
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="divider"></li>
+        <li class="<%= controller.class == StudentsController ? 'active' : '' %>">
+          <%= link_to "Students", students_path, id: "students-menu-item", class: "" %>
+        </li>
+        <li class="<%= controller.class == SponsorsController ? 'active' : '' %>">
+          <%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "" %>
+        </li>
+        <li class="divider"></li>
 
-			<div class="site_nav columns small-12">
-				<ul class="button-group">
-					<li>
-						<%= link_to "Students", students_path, id: "students-menu-item", class: "tiny button" %>
-					</li>
-					<li>
-						<%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "tiny button" %>
-					</li>
-          <li>
-            <a href="https://login.mailchimp.com" class="tiny button">Newsletters</a>
-          </li>
-				</ul>
-			</div>
-    </div>
-  </header>
+        <li>
+          <a target="blank" href="http://www.facebook.com/group.php?gid=324220396477" id="facebook_icon_link">Facebook</a>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</div>
+
+<header class="site_header">
+	<%# Accessibility links %>
+	<a href="#primary_nav" class="accessibility_link">Jump to site navigation</a>
+	<a href="#site_contents" class="accessibility_link">Jump to site contents</a>
+</header>
 
   <div class="site_body row">
+    <% if content_for?(:title) %>
+      <h3><%= yield :title %></h3>
+    <% end %>
+
+
     <a name="site_contents"></a>
-		<div class="columns small-12">
-    	<%= yield %>
-		</div>
+		
+    <%= yield %>
+		
   </div>
 
   <footer class="site_footer row">
     <div class="logo_wrapper columns small-1">
-      <a target="blank" href="http://www.facebook.com/group.php?gid=324220396477" class="facebook_icon_link">
-        <%= image_tag 'global/facebookIcon.jpg', alt:'Visit BBEF on Facebook' %>
-      </a>
+      
     </div>
-    <div class="copyright_wrapper columns small-10">
-			<p>
-       &copy; Copyright 2013 
-       <a href="http://www.bbef.org.au" title="Visit our Homepage">Bagong Barrio Education Fund</a>
-			</p>
+    <div class="copyright_wrapper text-center">
+      Copyright &copy; 2013
+      <a href="http://www.bbef.org.au" title="Visit our Homepage">Bagong Barrio Education Fund</a>
     </div>
   </footer>
 

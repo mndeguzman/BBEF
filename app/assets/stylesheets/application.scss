@@ -76,3 +76,18 @@
 @import "widgets/profile_details";
 @import "sponsors";
 @import "students";
+
+
+.top-bar .name h1 a {
+  padding-left: 0;
+}
+
+.site_body {
+  margin-top: 20px;
+  min-height: 400px;
+}
+
+.organisation_logo {
+  position: absolute;
+  left: 80px;
+}

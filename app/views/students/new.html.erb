@@ -1,10 +1,8 @@
-<% content_for(:title) { 'Students' } %>
+<% content_for(:title) { 'Add a new student' } %>
 
 <div class="row">
 	<div class="span well">
-		<div class="span12">
-			<h2>Add a new student</h2>
-		</div>
+		
 		<%= form_for(@student) do |f| %>
 
 			<% if f.object.errors.any? %>

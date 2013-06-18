@@ -1,22 +1,26 @@
 <% content_for(:title) { 'Students' } %>
 
 <%= link_to "Create Student", new_student_path, id: "student_create_link", class: 'tiny button' %>
-<table class="table table-striped" id="students">
-	<tr>
-		<th>Name</th>
-		<th>DOB</th>
-		<th>Grade</th>
-		<th>Institute</th>
-		<th>Sponsor</th>
-	</tr>
-	<% @students.each do |student| %>
-		<tr id="<%=student.id%>" class="student">
-			<td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id) %></td>
-			<td><%= student.dob.strftime("%d/%m/%Y") %></td>
-			<td><%= student.grade %></td>
-			<td><%= student.institute %></td>
-			<td class="sponsor_name" ><%= link_to("#{student.sponsor.full_name}", sponsor_path(student.sponsor)) if student.sponsor %></td>
+<table class="table-striped" id="students">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>DOB</th>
+			<th>Grade</th>
+			<th>Institute</th>
+			<th>Sponsor</th>
 		</tr>
-	<% end %>
+	</thead>
 
+	<tbody>
+		<% @students.each do |student| %>
+			<tr id="<%=student.id%>" class="student">
+				<td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id) %></td>
+				<td><%= student.dob.strftime("%d/%m/%Y") %></td>
+				<td><%= student.grade %></td>
+				<td><%= student.institute %></td>
+				<td class="sponsor_name" ><%= link_to("#{student.sponsor.full_name}", sponsor_path(student.sponsor)) if student.sponsor %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
