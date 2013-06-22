@@ -113,7 +113,7 @@ Then(/^I enter and save the following details of a sponsor$/) do |expected_value
     fill_in "sponsor_#{field}", with: sponsor_form_values[title] if sponsor_form_values[title] 
   end
 
-  click_button "save_sponsor"
+  click_button "update_sponsor"
 end
 
 Then(/^I am viewing the sponsor "(.*?)"$/) do |expected_sponsor|
