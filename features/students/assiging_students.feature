@@ -1,7 +1,6 @@
 Feature: i can assign a sponser to a student
 
 
-@current
 Scenario: i can associate a student with a sponser
     Given the following sponsors exist
     | first_name | last_name | date_paid  | current_balance |
@@ -23,8 +22,7 @@ Scenario: i can associate a student with a sponser
     | first2 student2 | 20/01/2011 | second | school1   |                 |
     | first3 student3 | 20/03/2010 | first  | school2   |                 |
 
-
-
+@javascript
 Scenario: i can navigate from the list of studnets to thier sponsor
     Given the following sponsors exist
     | sponsor | first_name | last_name | date_paid  | current_balance | 
@@ -51,10 +49,10 @@ Scenario: i can see a list of sponsors to asscoiated with the students
     | first3     | student3  | first  | school2   | 20/03/2010 |
     And I view the list of students
     And I choose to view the student "first1 student1"
-    When I can associate the student with 
+    Then I can associate the student with 
     |sponsor                |
-    |first1 sponsor1 (2000) |   
-    |first2 sponsor2 (1589) |    
+    |first12 sponsor1 (2000) |   
+    |first22 sponsor2 (1589) |    
 
 
 

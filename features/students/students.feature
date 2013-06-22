@@ -46,7 +46,7 @@ Scenario: i can edit a student
      | Grade     | first      |
      | Institute | school2    |
 
- Scenario: i can cancel adding a student to the database
+ Scenario: i can cancel editing a student
     Given the following students exist
     | first_name | last_name | grade  | institute | dob        |
     | first2     | last2     | second | school1   | 20/01/2008 |

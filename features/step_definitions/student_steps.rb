@@ -74,11 +74,11 @@ Then(/^I enter and save the following details of a student$/) do |required_value
   select $3.to_s,                       from: "student_dob_1i" if student_values_to_fill_in['DOB'] 
   fill_in "student_grade",         with: student_values_to_fill_in['Grade'] if student_values_to_fill_in['Grade'] 
   fill_in "student_institute",         with: student_values_to_fill_in['Institute'] if student_values_to_fill_in['Institute'] 
-  click_button "save_student"
+  click_button "update_student"
 end
 
 When(/^I choose to cancel the current action$/) do
-  click_link "Cancel"
+  click_link "cancel_action"
 end
 
 When(/^I should be viewing the student list$/) do
