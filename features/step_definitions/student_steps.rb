@@ -22,6 +22,9 @@ When /^I attempt to create a student with the following values$/ do |required_va
   select $3.to_s,                       from: "student_dob_1i" if student_values_to_fill_in['DOB'] 
   fill_in "student_grade",              with: student_values_to_fill_in['Grade']
   fill_in "student_institute",          with: student_values_to_fill_in['Institute']
+  fill_in "student_course_type",         with: student_values_to_fill_in['Course Type'] 
+  fill_in "student_number_of_years_in_collage",         with: student_values_to_fill_in['Number Of Years']
+ 
   click_button "create_student"
 
 end
@@ -41,6 +44,8 @@ Then(/^I see the following details of a student$/) do |expected_values|
   page.find("#student_dob").text.should == student_values_to_fill_in['DOB'] if student_values_to_fill_in['DOB']
   page.find("#student_grade").text.should == student_values_to_fill_in['Grade'] if student_values_to_fill_in['Grade']
   page.find("#student_institute").text.should == student_values_to_fill_in['Institute'] if student_values_to_fill_in['Institute']
+  page.find("#student_course_type").text.should == student_values_to_fill_in['Course Type'] if student_values_to_fill_in['Course Type']
+  page.find("#student_number_of_years_in_collage").text.should == student_values_to_fill_in['Number Of Years'] if student_values_to_fill_in['Number Of Years']
 
 end
 
@@ -59,6 +64,8 @@ Then(/^I see prepopulated the details of a student$/) do |expected_values|
   select $3.to_s,                       from: "student_dob_1i" if student_values_to_fill_in['DOB'] 
   page.find("#student_grade").value.should ==  student_values_to_fill_in['Grade']
   page.find("#student_institute").value.should == student_values_to_fill_in['Institute']
+  page.find("#student_course_type").value.should == student_values_to_fill_in['Course Type']
+  page.find("#student_number_of_years_in_collage").value.should == student_values_to_fill_in['Number Of Years']
 
 end
 
@@ -74,6 +81,8 @@ Then(/^I enter and save the following details of a student$/) do |required_value
   select $3.to_s,                       from: "student_dob_1i" if student_values_to_fill_in['DOB'] 
   fill_in "student_grade",         with: student_values_to_fill_in['Grade'] if student_values_to_fill_in['Grade'] 
   fill_in "student_institute",         with: student_values_to_fill_in['Institute'] if student_values_to_fill_in['Institute'] 
+  fill_in "student_course_type",         with: student_values_to_fill_in['Course Type'] if student_values_to_fill_in['Course Type'] 
+  fill_in "student_number_of_years_in_collage",         with: student_values_to_fill_in['Number Of Years'] if student_values_to_fill_in['Number Of Years'] 
   click_button "update_student"
 end
 

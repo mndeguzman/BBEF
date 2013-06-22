@@ -36,6 +36,18 @@
 
 	</div>
 
+    If in Collage
+	<div class="span2">
+
+
+		<%= f.label :course_type, "Course Type" %>
+		<%= f.text_field :course_type %>
+
+		<%= f.label :number_of_years_in_collage, "Number Of Years" %>
+		<%= f.text_field :number_of_years_in_collage %>
+
+	</div>
+
 	<div class="span12">
 		<%= f.submit "Save", class: "tiny submit button", id: "#{action}_student" %>
         <%= link_to "Cancel", cancel_path, id: "cancel_action", class: 'tiny cancel button' %>

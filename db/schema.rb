@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602030117) do
+ActiveRecord::Schema.define(:version => 20130622051755) do
 
   create_table "sponsors", :force => true do |t|
     t.string   "first_name"
@@ -35,15 +35,16 @@ ActiveRecord::Schema.define(:version => 20130602030117) do
     t.string   "last_name"
     t.string   "grade"
     t.string   "institute"
-    t.string   "course"
     t.date     "dob"
     t.string   "sex"
     t.integer  "num_year"
     t.date     "program_start"
     t.date     "program_end"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "sponsor_id"
+    t.integer  "number_of_years_in_collage"
+    t.string   "course_type"
   end
 
 end
