@@ -29,8 +29,13 @@ class StudentsController < ApplicationController
 	end			
 
 	def update
-    	@student.update_attributes(params[:student])
-	    redirect_to student_path(@student)
+        if @student.update_attributes(params[:student])
+  		  flash[:success] = "Your student details have been saved"
+	      redirect_to student_path(@student)
+	    else
+  		  flash[:error] = "Your disired stduent details are not valid"
+	      render 'edit'
+	    end
 	end			
 
 	def associate_sponsor

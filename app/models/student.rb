@@ -7,5 +7,9 @@ class Student < ActiveRecord::Base
   validates :last_name, presence: true
   validates :grade, presence: true
   validates :institute, presence: true
+  validates :sex, presence: true
+
+  GENDER_MALE = "MALE"
+  GENDER_FEMALE = "FEMALE"
 
 end

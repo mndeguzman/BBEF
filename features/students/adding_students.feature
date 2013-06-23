@@ -27,6 +27,7 @@ Scenario: a student needs to have a last name
      | DOB        | 20/04/2008 |
      | Grade      | third      |
      | Institute  | school3    |
+     | Sex        | Male       |
     And 0 students should exist
     And I should see a message indicating that i have errors on page
     And I should see that the "last_name" of "student" needs to be corrected 
@@ -39,9 +40,11 @@ Scenario: a student needs to have a first name
      | DOB        | 20/04/2008 |
      | Grade      | third      |
      | Institute  | school3    |
+     | Sex        | Male       |
     And 0 students should exist
     And I should see a message indicating that i have errors on page
     And I should see that the "first_name" of "student" needs to be corrected 
+
 
 Scenario: a student needs to have be in grade
     When I view the list of students
@@ -51,6 +54,7 @@ Scenario: a student needs to have be in grade
      | Last Name  | last3      |
      | DOB        | 20/04/2008 |
      | Institute  | school3    |
+     | Sex        | Male       |
     And 0 students should exist
     And I should see a message indicating that i have errors on page
     And I should see that the "grade" of "student" needs to be corrected 
@@ -63,6 +67,7 @@ Scenario: a student needs to have be in a institute
      | Last Name  | last3      |
      | Grade      | third      |
      | DOB        | 20/04/2008 |
+     | Sex        | Male       |
     And 0 students should exist
     And I should see a message indicating that i have errors on page
     And I should see that the "institute" of "student" needs to be corrected 

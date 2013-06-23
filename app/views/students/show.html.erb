@@ -5,10 +5,11 @@
 		<div class="span5">
 			<div>Name : <span id="student_name"><%= "#{@student.first_name} #{@student.last_name}" %></span></div>
 			<div>Date Of Birth : <span id="student_dob"><%= @student.dob.strftime("%d/%m/%Y") if @student.dob %></span></div>
+			<div>Sex : <span id="student_sex"><%= @student.sex.capitalize if @student.sex %></span></div>
 			<div>Grade : <span id="student_grade"><%= @student.grade %></span></div>
 			<div>School/College : <span id="student_institute"><%= @student.institute %></span></div>
-			<div>Course Type : <span id="student_grade"><%= @student.course_type %></span></div>
-			<div>Number Of Years : <span id="student_institute"><%= @student.number_of_years_in_collage %></span></div>			
+			<div>Course Type : <span id="student_course_type"><%= @student.course_type %></span></div>
+			<div>Number Of Years : <span id="student_number_of_years_in_collage"><%= @student.number_of_years_in_collage %></span></div>			
 		</div>
 	</div>
 

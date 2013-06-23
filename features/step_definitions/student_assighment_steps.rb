@@ -23,8 +23,6 @@ Then /^the current student is associated with "(.*?)"$/ do |expected_sponsor|
 	expected_sponsor =~ /(.*) (.*)/
     first_name = $1
     sponsor = Sponsor.find_by_first_name first_name
-    puts "page.find('#sponsor_name').value #{page.find('#sponsor_name').value}"
-    puts "sponsor.id #{sponsor.id}"
 
     page.has_select?("#sponsor_name", selected: sponsor.id)
 end

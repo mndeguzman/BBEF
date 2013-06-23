@@ -24,6 +24,7 @@ When /^I attempt to create a student with the following values$/ do |required_va
   fill_in "student_institute",          with: student_values_to_fill_in['Institute']
   fill_in "student_course_type",         with: student_values_to_fill_in['Course Type'] 
   fill_in "student_number_of_years_in_collage",         with: student_values_to_fill_in['Number Of Years']
+  select student_values_to_fill_in['Sex'], from: "student_sex"  if student_values_to_fill_in['Sex'] 
  
   click_button "create_student"
 
@@ -46,6 +47,7 @@ Then(/^I see the following details of a student$/) do |expected_values|
   page.find("#student_institute").text.should == student_values_to_fill_in['Institute'] if student_values_to_fill_in['Institute']
   page.find("#student_course_type").text.should == student_values_to_fill_in['Course Type'] if student_values_to_fill_in['Course Type']
   page.find("#student_number_of_years_in_collage").text.should == student_values_to_fill_in['Number Of Years'] if student_values_to_fill_in['Number Of Years']
+  page.find("#student_sex").text.should == student_values_to_fill_in['Sex'] if student_values_to_fill_in['Sex']
 
 end
 
@@ -67,6 +69,8 @@ Then(/^I see prepopulated the details of a student$/) do |expected_values|
   page.find("#student_course_type").value.should == student_values_to_fill_in['Course Type']
   page.find("#student_number_of_years_in_collage").value.should == student_values_to_fill_in['Number Of Years']
 
+  page.has_select?("#sponsor_sex", selected: student_values_to_fill_in['Sex'])
+
 end
 
 
@@ -83,6 +87,8 @@ Then(/^I enter and save the following details of a student$/) do |required_value
   fill_in "student_institute",         with: student_values_to_fill_in['Institute'] if student_values_to_fill_in['Institute'] 
   fill_in "student_course_type",         with: student_values_to_fill_in['Course Type'] if student_values_to_fill_in['Course Type'] 
   fill_in "student_number_of_years_in_collage",         with: student_values_to_fill_in['Number Of Years'] if student_values_to_fill_in['Number Of Years'] 
+  select student_values_to_fill_in['Sex'], from: "student_sex"  if student_values_to_fill_in['Sex'] 
+
   click_button "update_student"
 end
 
