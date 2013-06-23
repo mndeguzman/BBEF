@@ -5,6 +5,15 @@ class Sponsor < ActiveRecord::Base
 
   has_many :students
 
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :postcode, presence: true
+
+
   def full_name
   	"#{first_name} #{last_name}"
   end

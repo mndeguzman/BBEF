@@ -10,9 +10,14 @@ class SponsorsController < ApplicationController
   end	
 
   def create
-  	@sponsor = Sponsor.new(params[:sponsor])
-  	@sponsor.save
-  	redirect_to sponsors_path
+    @sponsor = Sponsor.new(params[:sponsor])
+    if @sponsor.save
+        flash[:success] = "Your sponsor has been created"
+        redirect_to sponsors_path
+      else
+        flash[:error] = "Your sponsor has not been created"
+        render 'new'
+      end
   end		
 
   def show
@@ -22,8 +27,13 @@ class SponsorsController < ApplicationController
   end     
 
   def update
-      @sponsor.update_attributes(params[:sponsor])
-      redirect_to sponsor_path(@sponsor.id)
+    if @sponsor.update_attributes(params[:sponsor])
+        flash[:success] = "The details of your sponosr have been saved"
+        redirect_to sponsor_path(@sponsor.id)
+      else
+        flash[:error] = "Your sponsor has not been created"
+        render 'edit'
+      end   
   end   
 
   
