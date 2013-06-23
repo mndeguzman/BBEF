@@ -9,17 +9,21 @@
 			<th>Grade</th>
 			<th>Institute</th>
 			<th>Sponsor</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @students.each do |student| %>
-			<tr id="<%=student.id%>" class="student">
+			<tr id="student_list_item_<%=student.id%>" class="student">
 				<td><%= link_to "#{student.first_name} #{student.last_name}", student_path(student.id) %></td>
 				<td><%= student.dob.strftime("%d/%m/%Y") %></td>
 				<td><%= student.grade %></td>
 				<td><%= student.institute %></td>
 				<td class="sponsor_name" ><%= link_to("#{student.sponsor.full_name}", sponsor_path(student.sponsor)) if student.sponsor %></td>
+				<td class="action_link">
+					<%= link_to "Edit", edit_student_path(student.id), title:"Edit student (#{student.first_name} #{student.last_name})", class:"student_edit_link" %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>

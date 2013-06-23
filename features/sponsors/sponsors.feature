@@ -65,7 +65,7 @@ Scenario: i can edit a sponsor
      | Email           | first3.last3@test.com |
      | Contact Method  | phone                 |
 
-Scenario: if the disired details of a sponsor are incorrect when edited , the yser is infomred
+Scenario: if the disired details of a sponsor are incorrect when edited , the user is infomred
     When I view the list of sponsors
     And I choose to view the sponsor "first1 last1"
     And I choose to edit the current sponsor

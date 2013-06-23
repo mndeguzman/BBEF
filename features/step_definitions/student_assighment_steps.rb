@@ -32,7 +32,7 @@ When /^I choose to view the sponsor of "(.*?)"$/  do |student_name|
     first_name = $1
     student = Student.find_by_first_name first_name
 
-    page.find("##{student.id} .sponsor_name a").click
+    page.find("#student_list_item_#{student.id} .sponsor_name a").click
 
 end
 

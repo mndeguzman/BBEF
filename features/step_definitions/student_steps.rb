@@ -1,3 +1,11 @@
+# returns a Student record by full name (first + last name)
+def getStudentByName(student_name)
+  student_name =~ /(.*) (.*)/
+    first_name = $1
+    student = Student.find_by_first_name first_name
+  student
+end
+
 When /^I view the list of students$/ do
   visit students_path
 end
@@ -103,3 +111,22 @@ end
 When(/^I should be viewing the student details$/) do
   page.find("#student_details").nil?.should == false
 end
+
+When(/^I choose to edit the student "(.*?)"$/) do |student_name|
+  student = getStudentByName student_name
+
+  page.find("#student_list_item_#{student.id} a.student_edit_link").click
+end
+
+Then(/^I see the edit page for student "(.*?)"$/) do |student_name|
+  student = getStudentByName student_name
+  student_name =~ /(.*) (.*)/
+    first_name = $1
+    last_name = $2
+
+  within(".view_student_edit #edit_student_#{student.id}") do
+    page.find('#student_first_name').value.should == first_name
+    page.find('#student_last_name').value.should == last_name
+  end
+end
+

@@ -87,6 +87,13 @@ Scenario: i can edit a student
     And I choose to cancel the current action
     And I should be viewing the student details
 
+Scenario: I can edit a Student from the Studnet list view
+    Given the following students exist
+    | first_name | last_name | 
+    | first1     | last1     | 
+    When I view the list of students
+    And I choose to edit the student "first1 last1"
+    Then I see the edit page for student "first1 last1"
 
   
 

@@ -25,7 +25,7 @@
 		<%= f.date_select(:dob, :start_year => Time.now.year - 5, :end_year => Time.now.year - 40, :order => [:day, :month, :year]) %>
 
 		<%= f.label :sex, "Sex" %>
-		<%= f.select(:sex, [['Female', Student::GENDER_FEMALE], ['Male', Student::GENDER_MALE]]) %>>
+		<%= f.select(:sex, [['Female', Student::GENDER_FEMALE], ['Male', Student::GENDER_MALE]]) %>
 	</div>
 
 	<div class="span5">
