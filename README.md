@@ -1,3 +1,3 @@
 BBEF
 ====
-https://api.travis-ci.org/mndeguzman/BBEF.png
+[![Build Status](https://travis-ci.org/mndeguzman/BBEF.png)](https://travis-ci.org/mndeguzman/BBEF.png)
