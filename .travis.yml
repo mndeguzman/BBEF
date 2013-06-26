@@ -4,3 +4,6 @@ rvm:
 script: 
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec cucumber
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
