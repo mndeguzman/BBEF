@@ -131,3 +131,13 @@ Then(/^I see the edit page for student "(.*?)"$/) do |student_name|
   end
 end
 
+Then(/^I choose to delete the student "(.*?)"$/) do |student_name|
+  student = getStudentByName student_name
+
+  page.find("#student_list_item_#{student.id} a.student_delete_link").click
+end
+
+Then(/^I confirm the choice to delete the student$/) do
+  page.driver.browser.switch_to.alert.accept    
+end
+

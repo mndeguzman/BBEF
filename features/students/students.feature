@@ -11,6 +11,8 @@ Scenario: i can see list of students from the database
     | first1 last1 | 20/03/2007 | first  | school2   |
     | first2 last2 | 20/01/2008 | second | school1   |
 
+
+
 Scenario: i can see a student
     Given the following students exist
     | first_name | last_name | grade  | institute | dob        | sex    | course_type | number_of_years_in_collage |
@@ -95,6 +97,19 @@ Scenario: I can edit a Student from the Studnet list view
     And I choose to edit the student "first1 last1"
     Then I see the edit page for student "first1 last1"
 
-  
-
-
+@javascript @wip
+Scenario: I can delete a Student from the Studnet list view
+    Given the following students exist
+    | first_name | last_name | grade  | institute | dob        | sex    |
+    | first2     | last2     | second | school1   | 20/01/2008 | MALE   |
+    | first1     | last1     | first  | school2   | 20/03/2007 | FEMALE |
+    When I view the list of students
+    Then I shall see the following students
+    | Name         | DOB        | Grade  | Institute |
+    | first1 last1 | 20/03/2007 | first  | school2   |
+    | first2 last2 | 20/01/2008 | second | school1   |  
+    And I choose to delete the student "first1 last1"
+    And I confirm the choice to delete the student
+    Then I shall see the following students
+    | Name         | DOB        | Grade  | Institute |
+    | first2 last2 | 20/01/2008 | second | school1   | 

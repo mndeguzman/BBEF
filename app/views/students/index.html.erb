@@ -23,6 +23,9 @@
 				<td class="sponsor_name" ><%= link_to("#{student.sponsor.full_name}", sponsor_path(student.sponsor)) if student.sponsor %></td>
 				<td class="action_link">
 					<%= link_to "Edit", edit_student_path(student.id), title:"Edit student (#{student.first_name} #{student.last_name})", class:"student_edit_link" %>
+
+
+    			<td class="action_link"><%= link_to 'Delete', student, method: :delete, data: { confirm: "are you sure you want to delete student #{student.full_name}" } ,class: "student_delete_link"%></td>
 				</td>
 			</tr>
 		<% end %>

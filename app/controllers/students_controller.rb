@@ -44,7 +44,13 @@ class StudentsController < ApplicationController
 	    @student.sponsor = sponsor 
 	    @student.save!
 	    redirect_to student_path(@student)
-  	end  	
+  	end 
+
+	def destroy
+	    @student.destroy
+	    redirect_to students_url 
+	end
+ 	
 
   private 
   def find_student
