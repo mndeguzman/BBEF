@@ -7,6 +7,7 @@ def getSponsorByName(sponsor_name)
 end
 
 When(/^I view the list of sponsors$/) do
+  step "I have landed on BBEF hompage"
 	visit sponsors_path
 end
 

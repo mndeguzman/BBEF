@@ -16,7 +16,7 @@ Scenario: i can see a student
     | first_name | last_name | grade  | institute | dob        | sex    | course_type | number_of_years_in_collage |
     | first2     | last2     | second | school1   | 20/01/2008 | MALE   | accounting  | 3                          |
     | first1     | last1     | first  | school2   | 20/03/2007 | FEMALE | consultancy | 2                          |
-    When I view the list of students
+    When I have landed on BBEF hompage
     And I choose to view the student "first1 last1"
     Then I see the following details of a student
      | Name            | first1 last1         |
@@ -32,7 +32,7 @@ Scenario: i can edit a student
     | first_name | last_name | grade  | institute | dob        |  sex    |course_type | number_of_years_in_collage |
     | first2     | last2     | second | school1   | 20/01/2008 |  MALE   |accounting  | 3                          |
     | first1     | last1     | first  | school2   | 20/03/2007 |  FEMALE |consultancy | 2                          |
-    When I view the list of students
+    When I have landed on BBEF hompage
     And I choose to view the student "first1 last1"
     And I choose to edit the current student
     Then I see prepopulated the details of a student
@@ -68,7 +68,7 @@ Scenario: i can edit a student
     | first_name | last_name | grade  | institute | dob        |  sex    |course_type | number_of_years_in_collage |
     | first2     | last2     | second | school1   | 20/01/2008 |  MALE   |accounting  | 3                          |
     | first1     | last1     | first  | school2   | 20/03/2007 |  FEMALE |consultancy | 2                          |
-    When I view the list of students
+    When I have landed on BBEF hompage
     And I choose to view the student "first1 last1"
     And I choose to edit the current student
     Then I enter and save the following details of a student
@@ -81,7 +81,7 @@ Scenario: i can edit a student
     | first_name | last_name | grade  | institute | dob        |
     | first2     | last2     | second | school1   | 20/01/2008 |
     | first1     | last1     | first  | school2   | 20/03/2007 |
-    When I view the list of students
+    When I have landed on BBEF hompage
     And I choose to view the student "first1 last1"
     And I choose to edit the current student
     And I choose to cancel the current action
@@ -91,7 +91,7 @@ Scenario: I can edit a Student from the Studnet list view
     Given the following students exist
     | first_name | last_name | 
     | first1     | last1     | 
-    When I view the list of students
+    When I have landed on BBEF hompage
     And I choose to edit the student "first1 last1"
     Then I see the edit page for student "first1 last1"
 

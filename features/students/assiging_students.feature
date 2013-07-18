@@ -11,7 +11,7 @@ Scenario: i can associate a student with a sponser
     | first2     | student2  | second | school1   | 20/01/2011 |
     | first1     | student1  | first  | school2   | 20/03/2010 |
     | first3     | student3  | first  | school2   | 20/03/2010 |
-    And I view the list of students
+    When I have landed on BBEF hompage
     And I choose to view the student "first1 student1"
     When I choose to associate the sponsor "first2 sponsor2" with the current student
     Then the current student is associated with "first2 sponsor2"
@@ -33,7 +33,7 @@ Scenario: i can navigate from the list of studnets to thier sponsor
     | sponsor: "spon1" | first2     | student2  | second | school1   | 20/01/2011 |
     |                  | first1     | student1  | first  | school2   | 20/03/2010 |
     |                  | first3     | student3  | first  | school2   | 20/03/2010 |
-    And I view the list of students
+    When I have landed on BBEF hompage
     When I choose to view the sponsor of "first2 student2"
     Then I am viewing the sponsor "first1 sponsor1"
 
@@ -47,7 +47,7 @@ Scenario: i can see a list of sponsors to asscoiated with the students
     | first2     | student2  | second | school1   | 20/01/2011 |
     | first1     | student1  | first  | school2   | 20/03/2010 |
     | first3     | student3  | first  | school2   | 20/03/2010 |
-    And I view the list of students
+    When I have landed on BBEF hompage
     And I choose to view the student "first1 student1"
     Then I can associate the student with 
     |sponsor                |

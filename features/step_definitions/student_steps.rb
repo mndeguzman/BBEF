@@ -7,6 +7,7 @@ def getStudentByName(student_name)
 end
 
 When /^I view the list of students$/ do
+  step "I have landed on BBEF hompage"
   visit students_path
 end
 
