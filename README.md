@@ -7,10 +7,10 @@ Dev Notes
 
 * Test sequence:
 ```
-rake db:reset
-rake db:migrate
-rake db:test:prepare
-cucumber
+bundle exec rake db:reset
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare
+bundle exec cucumber
 ```
 
 * Run sequence: `rails s`
