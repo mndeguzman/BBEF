@@ -29,14 +29,11 @@
 	</div>
 
 	<div class="span5">
-
-
 		<%= f.label :grade, "Grade" %>
 		<%= f.text_field :grade %>
 
 		<%= f.label :institute, "School/College" %>
 		<%= f.text_field :institute %>
-
 	</div>
 
     If in College
@@ -47,7 +44,7 @@
 		<%= f.text_field :course_type %>
 
 		<%= f.label :number_of_years_in_collage, "Number Of Years" %>
-		<%= f.text_field :number_of_years_in_collage %>
+		<%= f.text_field :number_of_years_in_collage, :type => 'number', :min => '0' %>
 
 	</div>
 

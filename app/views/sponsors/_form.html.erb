@@ -27,7 +27,7 @@
 				<%= f.text_field :current_balance, value: number_to_currency(@sponsor.current_balance, unit: '') %>
 
 				<%= f.label :date_paid, "Date Paid" %>
-				<%= f.text_field :date_paid, value: @sponsor.date_paid && @sponsor.date_paid.strftime("%d/%m/%Y") %>
+				<%= f.text_field :date_paid, value: @sponsor.date_paid && @sponsor.date_paid.strftime("%d/%m/%Y"), :type => 'date' %>
 			</div>
 
 			<div class="span5">
@@ -41,7 +41,7 @@
 				<%= f.text_field :state %>
 
 				<%= f.label :postcode, "Postcode" %>
-				<%= f.text_field :postcode %>
+				<%= f.text_field :postcode, :type => 'number' %>
 			</div>
 
 			<div class="span5">
@@ -52,7 +52,7 @@
 				<%= f.text_field :mobile %>
 
 				<%= f.label :email, "Email" %>
-				<%= f.text_field :email %>
+				<%= f.text_field :email, :type => 'email' %>
 
 				<%= f.label :contact_method, "Contact Method" %>
 				<%= f.text_field :contact_method %>
