@@ -1,5 +1,14 @@
 ActiveAdmin.register Sponsor do
-  
+  menu :priority => 1
+  index do
+    column "First Name", :first_name
+    column "Current Balance", :current_balance
+    column "Date Paid", :date_paid
+    column "Preferred contact method", :contact_method
+
+    default_actions
+  end
+
  action_item :only => :index do
     link_to 'Upload CSV', :action => 'upload_sponsors'
   end
@@ -19,5 +28,6 @@ ActiveAdmin.register Sponsor do
 	puts notice
     redirect_to :action => :index, :notice => notice
   end
+
 
 end
