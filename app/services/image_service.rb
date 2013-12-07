@@ -37,12 +37,25 @@ class ImageService
   end
 
   def upload(photo_path, opts={})
+    get_image_urls upload_image(photo_path, opts)
+  end
+
+  private
+  def upload_image(photo_path, opts)
     {description: '', title: '', safety_level: 3, hidden: true}.merge(opts)
     flickr.upload_photo photo_path, opts
   end
 
-  def get_image_url(image_id)
+  def get_image_urls(image_id)
     info = flickr.photos.getInfo(:photo_id => image_id)
-    FlickRaw.url_b(info)
+    { 
+      original: FlickRaw.url_o(info),      
+      thumbnail: FlickRaw.url_t(info),
+      large: FlickRaw.url_b(info),
+      medium: FlickRaw.url_z(info),
+      small: FlickRaw.url_n(info),
+      square: FlickRaw.url_s(info)
+    }
+    
   end
 end
