@@ -24,3 +24,6 @@
 
 # ignore SASS cache
 .sass-cache
+
+# ignore environmental variables
+env.bash

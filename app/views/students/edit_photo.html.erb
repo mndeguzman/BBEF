@@ -1,0 +1,13 @@
+<% content_for(:title) { 'Students' } %>
+
+<h2>Upload a photo</h2>
+<%= form_tag(student_update_photo_path(@student), enctype: "multipart/form-data" ) do |f| %>
+
+  <img src="<%= @student.thumbnail %>" />
+  <%= file_field_tag :photo %>
+
+  <div class="span12">
+    <%= submit_tag "Save", class: "tiny submit button"%>
+  </div>
+<% end %>
+  

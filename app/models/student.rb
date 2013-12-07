@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  attr_accessible  :dob, :first_name, :grade, :num_year, :institute, :last_name, :program_end, :program_start, :sex, :number_of_years_in_collage , :course_type, :sponsor_id
+  attr_accessible  :dob, :first_name, :grade, :num_year, :institute, :last_name, :program_end, :program_start, :sex, :number_of_years_in_collage , :course_type, :sponsor_id, :thumbnail
   belongs_to :sponsor
 
 

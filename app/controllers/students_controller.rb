@@ -25,8 +25,21 @@ class StudentsController < ApplicationController
 		@sponsors = Sponsor.order("last_name").all
 	end	
 
-	def edit
-	end			
+	def edit_photo
+    @student = Student.find(params[:student_id])
+	end
+
+  def update_photo
+    @student = Student.find(params[:student_id])
+    photo = params[:photo]
+
+    saved_image = ImageService.singleton.upload(photo)
+    puts "saved_image = #{saved_image}"
+    @student.thumbnail = saved_image[:thumbnail]
+    @student.save
+
+    redirect_to :edit_photo
+  end
 
 	def update
         if @student.update_attributes(params[:student])
