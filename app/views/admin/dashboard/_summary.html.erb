@@ -1,0 +1,22 @@
+<% @students = Student.all %>
+<% @sponsors = Sponsor.all %>
+<table class="dash-table">
+  <thead>
+    <tr>
+      <th colspan="2">Students</th>
+      <th colspan="2">Sponsors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total Students</td>
+      <td><%= @students.count %></td>
+      <td>Total Sponsors</td>
+      <td><%= @sponsors.count %></td>
+    </tr>
+    <tr>
+      <td>Unsponsored Students</td>
+      <td><%= Student.where(:sponsor_id, 'nil').count %></td>
+    </tr>
+  </tbody>
+</table>

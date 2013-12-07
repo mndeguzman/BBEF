@@ -4,17 +4,7 @@ ActiveAdmin.register_page "Dashboard" do
 
   content :title => proc{ I18n.t("active_admin.dashboard") } do
 
-    columns do
-      column do
-        panel "Summary" do
-          h2 "This is where the total students will go"
-          h2 "This is where students without sponsors will show"
-          h2 "This is the breakdown of male vs female"
-          h2 "This will break down the number of people in different year levels"
-        end
-
-      end
-    end
+  render "summary"
 
   end # content
 end

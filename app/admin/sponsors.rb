@@ -2,6 +2,7 @@ ActiveAdmin.register Sponsor do
   menu :priority => 1
   index do
     column "First Name", :first_name
+    column "Last Name", :last_name
     column "Current Balance", :current_balance
     column "Date Paid", :date_paid
     column "Preferred contact method", :contact_method
@@ -12,10 +13,32 @@ ActiveAdmin.register Sponsor do
 
   #Filter
 
-  show do
-    panel "Sponsors" do
-      sponsor.column("First name") { |sponsor| link_to sponsor.first_name, admin_sponsor_path(sponsor) }
-    end
+  filter :last_name, :as => :string
+  filter :current_balance, :as => :numeric
+  filter :date_paid, :as => :date_range
+
+
+    # # Show
+    # show do |sponsor|
+    #   attributes_table do
+    #     row :first_name
+    #     row :last_name
+    #     row :current_balance
+    #     row :date_paid
+    #     row :address
+    #     row :city
+    #     row :state
+    #     row :postcode
+    #     row :home_phone
+    #     row :mobile
+    #     row :email
+    #     row :contact_method
+    #   end
+    # end
+
+
+
+
 
  action_item :only => :index do
     link_to 'Upload CSV', :action => 'upload_sponsors'
