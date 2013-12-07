@@ -6,6 +6,14 @@
     <span class=" span2">&nbsp;</span>
   </li>
   <% end %>
+  <% if flash[:error] %>
+
+  <li id="success_message"class="row">
+    <span class=" span2">&nbsp;</span>
+    <span class=" span2">&nbsp;</span>
+  </li>
+  <% end %>
+
   <%= form_tag({:action => :upload}, :multipart => true) do %>
       <div class="row">
       <div class="span3">

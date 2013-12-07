@@ -1,4 +1,6 @@
 BBEF::Application.routes.draw do
+  
+  root :to => 'students#index'
   devise_for :users, ActiveAdmin::Devise.config
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -67,7 +69,6 @@ BBEF::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'students#index'
 
   # See how all your routes lay out with "rake routes"
 
