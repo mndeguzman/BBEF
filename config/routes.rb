@@ -27,6 +27,8 @@ BBEF::Application.routes.draw do
     member do
        post 'associate_sponsor'
     end
+    get 'edit_photo'
+    post 'update_photo'
   end  
 
   resources :sponsors
