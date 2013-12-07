@@ -1,0 +1,31 @@
+<div class="details">
+  <% @student = Student.find params[:id] %>
+  <% Sponsor.order(:last_name).each do |sponsor| %>
+    <% next unless @student.id.in?(sponsor.student_ids) %>
+  <h2 class="row"><%= link_to sponsor.full_name, admin_sponsor_path(sponsor.id) %></h2>
+  <table class="panel">
+    <tbody>
+      <tr class="row">
+        <td>Balance</td>
+        <td><%= sponsor.current_balance %></td>
+      </tr>
+      <tr class="row">
+        <td>Contact method</td>
+        <td><%= sponsor.contact_method %></td>
+      </tr>
+      <tr class="row">
+        <td>Email</td>
+        <td><%= sponsor.email %></td>
+      </tr>
+      <tr class="row">
+        <td>Mobile</td>
+        <td><%= sponsor.mobile %></td>
+      </tr>
+      <tr class="row">
+        <td>Phone</td>
+        <td><%= sponsor.home_phone %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<% end %>
