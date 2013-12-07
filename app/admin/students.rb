@@ -9,6 +9,9 @@ ActiveAdmin.register Student do
     default_actions
   end
 
+  #Filters
+  filter :grade
+
   show do |student|
     img image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',size: '200x200', class: 'left-section')
     div :class => 'right-section' do
@@ -23,6 +26,8 @@ ActiveAdmin.register Student do
         end
       end
     end
+    render "student"
   end
+
 
 end

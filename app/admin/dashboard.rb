@@ -7,7 +7,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "Summary" do
-          h2  "This is where the total students will go"
+          h2 "This is where the total students will go"
           h2 "This is where students without sponsors will show"
           h2 "This is the breakdown of male vs female"
           h2 "This will break down the number of people in different year levels"
