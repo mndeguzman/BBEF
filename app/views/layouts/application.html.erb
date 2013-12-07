@@ -52,9 +52,9 @@
         <li class="<%= controller.class == SponsorsController ? 'active' : '' %>">
           <%= link_to "Sponsors", sponsors_path, id: "sponsors-menu-item", class: "" %>
         </li>
-        <li class="<%= controller.class == UploadController ? 'active' : '' %>">
-          <%= link_to "Upload", view_upload_path, id: "upload-menu-item", class: "" %>
-        </li>        
+        <li>
+          <%= link_to "Upload", upload_view_upload_path, id: "upload-menu-item", class: "" %>
+        </li>      
         <li class="divider"></li>
 
         <li>

@@ -1,3 +1,4 @@
+require 'csv'
 class UploadController < ApplicationController
 
 	def view_upload
@@ -5,10 +6,21 @@ class UploadController < ApplicationController
 	end
 
 	def upload
-    	Specialisation.delete_all
-    	ActiveRecord::Base.connection.execute("TRUNCATE TABLE programs_units")
-    	ActiveRecord::Base.connection.execute("TRUNCATE TABLE majors_units")
-     	process_csv(params[:csv].tempfile, params[:type])
+		begin
+			puts "hello"
+			result = process_csv(params[:csv].tempfile, params[:type])
+			raise error if result[:added] < 1
+			if result[:errors] > 0
+				result[:error_messages] = result[:error_messages].unshift "#{result[:errors]} stock details could not be uploaded"
+				flash[:error] = result[:error_messages].join("<br/>").html_safe
+			end
+		    puts "hello 3"
+			redirect_to '/upload/view_upload', notice: "You have successfully uploaded #{result[:added]} stock details for the following year #{params[:year]}"
+		rescue
+		    puts "hello 2"
+			flash[:error] = "The file could not be uploaded"
+			redirect_to '/upload/view_upload'
+		end
 	end
 
 
@@ -20,7 +32,7 @@ class UploadController < ApplicationController
     error_messages = []
 
     if type = "Sponsor" 
-    	ActiveRecord::Base.connection.execute("TRUNCATE TABLE sponsors")
+    	Sponsers.all.destroy
 	    CSV.foreach(csv) do |row|
 			nb_line_processed = nb_line_processed +1
 			begin
@@ -54,7 +66,7 @@ class UploadController < ApplicationController
 
 
   def self.create_sponsor_from_csv_row(row)
-    first_name, last_name, organisation, address, city, state,zip,country current_bal, date_paid, contact_method,sent_letter,email_address= row
+    bbef_id,first_name, last_name, organisation, address, city, state,zip,country,current_bal, date_paid, contact_method,sent_letter,email_address= row
     begin
       transaction do
         StockItem.create!(current_balance: Float(from_currency(total_value.strip)).to_s,
@@ -71,5 +83,4 @@ class UploadController < ApplicationController
     end
   end
 
-	end
 end	
