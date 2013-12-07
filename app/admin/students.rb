@@ -27,6 +27,7 @@ ActiveAdmin.register Student do
         end
       end
     end
+    render 'sponsorlist'
     active_admin_comments
   end
 

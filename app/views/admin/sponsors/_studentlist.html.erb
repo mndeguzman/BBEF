@@ -1,9 +1,9 @@
 <div class="details">
-  <% @students = Student.where('sponsor_id', params[:id]) %>
-  <% if @students.count == 0 %>
+  <% @sponsor = Sponsor.find params[:id] %>
+  <% if @sponsor.students.length == 0 %>
     <h2>This sponsor has no students</h2>
   <% else %>
-    <% @students.each do |student| %>
+    <% @sponsor.students.each do |student| %>
     <h2 class="row"><%= link_to student.full_name, admin_student_path(student.id) %></h2>
     <table class="panel">
       <tbody>
