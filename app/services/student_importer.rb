@@ -26,15 +26,12 @@ def self.process_csv(csv)
     result
   end
 
- attr_accessible  :dob, :first_name, :grade, :num_year, :institute, :last_name, :program_end, :program_start, :sex, :number_of_years_in_collage , :course_type, :sponsor_id, :thumbnail
- 
-
   def self.create_student_from_csv_row(row)
     given_name, middle_name,last_name, date_of_birth,sex,
     grade, school_collage, collage_course, program_start_date,program_end_date,post_program_career, years_sponsored = row
-    dob_as_date = dob.blank? ? nil : Date.strptime(date_paid.strip, '%d/%m/%y') 
-    program_start_as_date = date_paid.blank? ? nil : Date.strptime(date_paid.strip, '%d/%m/%y') 
-    program_end_as_date = date_paid.blank? ? nil : Date.strptime(date_paid.strip, '%d/%m/%y') 
+    dob_as_date = dob.blank? ? nil : Date.strptime(dob.strip, '%d/%m/%y') 
+    program_start_as_date = program_start.blank? ? nil : Date.strptime(program_start.strip, '%d/%m/%y') 
+    program_end_as_date = program_end.blank? ? nil : Date.strptime(program_end.strip, '%d/%m/%y') 
     Sponsor.create!(first_name: given_name.strip,
                   last_name: last_name.strip,
                   first_name: first_name.strip,
@@ -43,9 +40,9 @@ def self.process_csv(csv)
                   school_collage: school_collage.strip.to_s,
                   course_type: collage_course.strip.to_s,
                   sex: sex.strip,
-                  dob: email_address.strip,
-                  program_start: contact_method.strip,
-                  program_end:phone_number)
+                  dob: dob_as_date.strip,
+                  program_start: program_start_as_date.strip,
+                  program_end:program_end_as_date)
   end
 
 
