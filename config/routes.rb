@@ -23,6 +23,8 @@ BBEF::Application.routes.draw do
   end  
 
   resources :sponsors
+  get "upload/view_upload"
+  put "upload/upload"
 
   # Sample resource route with options:
   #   resources :products do

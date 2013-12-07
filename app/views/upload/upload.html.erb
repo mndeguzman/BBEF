@@ -1,0 +1,30 @@
+<div id="admin">
+  <% if flash[:notice] %>
+
+  <li id="success_message"class="row">
+    <span class=" span2">&nbsp;</span>
+    <span class=" span2">&nbsp;</span>
+  </li>
+  <% end %>
+  <%= form_tag({:action => :upload}, :multipart => true) do %>
+      <div class="row">
+      <div class="span3">
+        <%= label_tag(:type, "Type") %>
+                <%= select_tag("year", "<option>Student</option>
+                                        <option>Sponsor</option>".html_safe)
+                %>
+      </div>      
+    </div>
+      <div class="row inputfile">
+        <div class="span12">
+                <%= label_tag(:upload_file, "File To Upload") %>
+                <%= file_field_tag 'csv',:class => "span7" %>
+      </div>
+    </div>
+          <div class="row">
+            <div class="span4">
+              <%= submit_tag("Submit csv", id: "upload_csv",:class => "btn btn-primary btn-bold btn-large span2") %>
+            </div>
+          </div>
+<% end %>
+</div>      
