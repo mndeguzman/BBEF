@@ -27,7 +27,7 @@ ActiveAdmin.register Student do
         end
       end
     end
-    render "student"
+    active_admin_comments
   end
 
 

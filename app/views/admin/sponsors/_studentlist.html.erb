@@ -1,0 +1,35 @@
+<div class="details">
+  <% @students = Student.where('sponsor_id', params[:id]) %>
+  <% @students.each do |student| %>
+  <h2 class="row"><%= link_to student.full_name, admin_student_path(student.id) %></h2>
+  <table class="panel">
+    <tbody>
+      <tr>
+        <th rowspan="6">
+          <%=  image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',size: '200x200') %>
+        </th>
+      </tr>
+      <tr class="row">
+        <td>Date of Birth</td>
+        <td><%= student.dob %></td>
+      </tr>
+      <tr class="row">
+        <td>Gender</td>
+        <td><%= student.sex %></td>
+      </tr>
+      <tr class="row">
+        <td>Grade</td>
+        <td><%= student.grade %></td>
+      </tr>
+      <tr class="row">
+        <td>School</td>
+        <td><%= student.institute %></td>
+      </tr>
+      <tr class="row">
+        <td>Course</td>
+        <td><%= student.course_type %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<% end %>

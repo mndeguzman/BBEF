@@ -18,23 +18,27 @@ ActiveAdmin.register Sponsor do
   filter :date_paid, :as => :date_range
 
 
-    # # Show
-    # show do |sponsor|
-    #   attributes_table do
-    #     row :first_name
-    #     row :last_name
-    #     row :current_balance
-    #     row :date_paid
-    #     row :address
-    #     row :city
-    #     row :state
-    #     row :postcode
-    #     row :home_phone
-    #     row :mobile
-    #     row :email
-    #     row :contact_method
-    #   end
-    # end
+    # Show
+    show do |sponsor|
+      attributes_table do
+        row :first_name
+        row :last_name
+        row :current_balance
+        row :date_paid
+        row :address
+        row :city
+        row :state
+        row :postcode
+        row :home_phone
+        row :mobile
+        row :email
+        row :contact_method
+      end
+      panel "Students" do
+        render "studentlist"
+      end
+      active_admin_comments
+    end
 
 
 
