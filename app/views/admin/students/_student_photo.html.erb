@@ -2,11 +2,11 @@
   <% if student.photo.blank? %>
     <%= image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', size: '200x200') %>
   <% else %>
-    <%= image_tag(student.photo) %>
+    <%= image_tag(student.try(image_type)) %>
   <% end %>
 
   <div>
-    <a href="#" id="show-upload">Upload picture</a>
+    <a style="cursor: pointer" id="show-upload">Upload picture</a>
     <div id="upload">
       <%= form_tag(update_photo_admin_student_path(student), enctype: "multipart/form-data" ) do |f| %>
         <%= file_field_tag :photo %> <br/>

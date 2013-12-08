@@ -14,7 +14,7 @@ ActiveAdmin.register Student do
   filter :institute, :as => :select, :collection => proc {(Student.all).map{|p| [p.institute]}}, :label => 'School'
 
   show do |student|
-    render partial: 'student_photo', locals: {student: student}
+    render partial: 'student_photo', locals: {student: student, image_type: :photo}
     div :class => 'right-section' do
       h2 student.full_name
       div do
@@ -55,7 +55,7 @@ ActiveAdmin.register Student do
       thumbnail: saved_image[:thumbnail],
       photo: saved_image[:small])
 
-    redirect_to admin_student_path(student)
+    redirect_to(request.env["HTTP_REFERER"])
   end
 
 
