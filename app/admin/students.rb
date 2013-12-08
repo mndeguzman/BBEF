@@ -14,7 +14,7 @@ ActiveAdmin.register Student do
   filter :institute, :as => :select, :collection => proc {(Student.all).map{|p| [p.institute]}}, :label => 'School'
 
   show do |student|
-    img image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',size: '200x200', class: 'left-section')
+    render partial: 'student_photo', locals: {student: student}
     div :class => 'right-section' do
       h2 student.full_name
       div do
@@ -31,5 +31,17 @@ ActiveAdmin.register Student do
     active_admin_comments
   end
 
+  member_action :update_photo, :method => :post do
+    puts "params = #{params}"
+    student = Student.find(params[:id])
+    photo = params[:photo]
 
+    saved_image = ImageService.singleton.upload(photo)
+    puts "saved_image = #{saved_image}"
+    student.thumbnail = saved_image[:thumbnail]
+    student.photo = saved_image[:small]
+    student.save
+
+    redirect_to admin_student_path(student)
+  end
 end
