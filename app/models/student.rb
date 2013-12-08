@@ -17,6 +17,6 @@ class Student < ActiveRecord::Base
   GENDER_FEMALE = "FEMALE"
 
   def full_name
-  	"#{first_name} #{last_name}"
+  	"#{first_name} #{middle_name} #{last_name}".gsub('  ',' ')
   end
 end
