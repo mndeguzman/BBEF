@@ -24,11 +24,27 @@ ActiveAdmin.register Student do
           row :grade
           row :institute
           row :course_type
+          row :created_at
         end
       end
     end
     render 'sponsorlist'
     active_admin_comments
+  end
+
+  form do |f|
+    f.inputs "Details" do
+      f.input "sponsor_id", :label => "Sponsor"
+      f.input "first_name", :label => "First name"
+      f.input "last_name", :label => "Last name"
+      f.input "grade", :as => :select, :collection => ["Kinder", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "1st year Highschool", "2nd year Highschool", "3rd year Highschool", "4th year Highschool", "College 1", "College 2", "College 3", "College 4", "College 5"], :label => "Grade"
+      f.input "institute", :label => "School/College"
+      f.input "course_type", :label => 'Course'
+      f.input "dob", :as => :date_select, :start_year => Time.now.year - 25, :end_year => Time.now.year, :label => "Date of Birth"
+      f.input "sex", :as => :radio, :collection => ["Male", "Female"], :label => "Gender"
+      f.input "program_end", :label => "Program end date"
+      f.input "thumbnail"
+    end
   end
 
   member_action :update_photo, :method => :post do
