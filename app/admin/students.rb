@@ -45,6 +45,7 @@ ActiveAdmin.register Student do
       f.input "program_end", :label => "Program end date"
       f.input "thumbnail"
     end
+  end
 
   member_action :update_photo, :method => :post do
     puts "params = #{params}"
