@@ -2,7 +2,7 @@ ActiveAdmin.register Student do
   menu :priority => 2
   index do
     column "First Name", :first_name
-    column "Date of Birth", :dob
+    column "Last Name", :last_name
     column "Grade", :grade
     column "Institution", :institute
 
@@ -10,7 +10,7 @@ ActiveAdmin.register Student do
   end
 
   #Filters
-  filter :sponsor_id, :collection => proc {(Sponsor.all).map{|p| [p.full_name, p.id]}}
+  filter :sponsor_id, :as => :select, :collection => proc {(Sponsor.all).map{|p| [p.full_name, p.id]}}
   filter :institute, :as => :select, :collection => proc {(Student.all).map{|p| [p.institute]}}, :label => 'School'
 
   show do |student|
@@ -51,8 +51,8 @@ ActiveAdmin.register Student do
   member_action :update_photo, :method => :post do
     saved_image = ImageService.singleton.upload(params[:photo])
 
-    student = Student.update(params[:id], 
-      thumbnail: saved_image[:thumbnail], 
+    student = Student.update(params[:id],
+      thumbnail: saved_image[:thumbnail],
       photo: saved_image[:small])
 
     redirect_to admin_student_path(student)
