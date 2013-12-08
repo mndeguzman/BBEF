@@ -44,6 +44,8 @@ ActiveAdmin.register Student do
 
     redirect_to admin_student_path(student)
   end
+
+
   action_item :only => :index do
     link_to 'Upload CSV', :action => 'upload_students'
   end
