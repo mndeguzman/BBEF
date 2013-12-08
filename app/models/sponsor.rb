@@ -1,9 +1,10 @@
 class Sponsor < ActiveRecord::Base
-  
 
-  attr_accessible :current_balance, :date_paid, :first_name, :last_name, :students , :sponsor_type
-  attr_accessible :address, :city, :state, :postcode , :bbef_id ,:country
-  attr_accessible :home_phone, :mobile, :email, :contact_method, :organisation
+
+  attr_accessible :current_balance, :date_paid, :first_name, :last_name, : students , :sponsor_type
+  attr_accessible :address, :city, :state, :postcode, bbef_id,:country, :organisation
+  attr_accessible :home_phone, :mobile, :email, :contact_method
+
 
   has_many :students
 
@@ -14,6 +15,8 @@ class Sponsor < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :postcode, presence: true
+  validates :country, presence: true
+  validates :sponsor_type, presence: true
 
 
   def full_name
