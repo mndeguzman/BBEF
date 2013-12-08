@@ -1,8 +1,8 @@
 class Sponsor < ActiveRecord::Base
 
 
-  attr_accessible :current_balance, :date_paid, :first_name, :last_name, : students , :sponsor_type
-  attr_accessible :address, :city, :state, :postcode, bbef_id,:country, :organisation
+  attr_accessible :current_balance, :date_paid, :first_name, :last_name, :students , :sponsor_type
+  attr_accessible :address, :city, :state, :postcode, :bbef_id,:country, :organisation
   attr_accessible :home_phone, :mobile, :email, :contact_method
 
 
