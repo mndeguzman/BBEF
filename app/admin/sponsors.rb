@@ -5,7 +5,7 @@ ActiveAdmin.register Sponsor do
     column "Last Name", :last_name
     column "Current Balance", :current_balance
     column "Date Paid", :date_paid
-    column "Preferred contact method", :contact_method
+    column "Preferred contact", :contact_method
 
     default_actions
   end
@@ -14,8 +14,10 @@ ActiveAdmin.register Sponsor do
   #Filter
 
   filter :last_name, :as => :string
+  filter :organisation, :as => :string
   filter :current_balance, :as => :numeric
   filter :date_paid, :as => :date_range
+  filter :sponsor_type, :as => :check_boxes, :collection => ["Sponsor", "Interested", "Ready to Sponsor"]
 
 
     # Show
@@ -23,6 +25,8 @@ ActiveAdmin.register Sponsor do
       attributes_table do
         row :first_name
         row :last_name
+        row :organisation
+        row :sponsor_type
         row :current_balance
         row :date_paid
         row :address
@@ -44,11 +48,14 @@ ActiveAdmin.register Sponsor do
       f.inputs "Details" do
         f.input :first_name
         f.input :last_name
+        f.input :organisation
+        f.input :sponsor_type, :as => :select, :collection => ["Sponsor", "Interested", "Ready to Sponsor"], :label => "Type"
         f.input :current_balance
         f.input :date_paid
         f.input :address
         f.input :city
         f.input :state
+        f.input :country
         f.input :postcode
         f.input :home_phone
         f.input :mobile
