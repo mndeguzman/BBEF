@@ -42,7 +42,7 @@ ActiveAdmin.register Student do
 
   form do |f|
     f.inputs "Details" do
-      f.input "sponsor_id", :label => "Sponsor"
+      f.input "sponsor_id", :label => "Sponsor", :as => :select, :collection => Sponsor.all.map {|s| [s.full_name, s.id] }
       f.input "first_name", :label => "First name"
       f.input "last_name", :label => "Last name"
       f.input "dob", :as => :date_select, :start_year => Time.now.year - 25, :end_year => Time.now.year, :label => "Date of Birth"
