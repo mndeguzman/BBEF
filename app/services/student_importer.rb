@@ -39,7 +39,6 @@ def self.process_csv(csv)
     Student.create!(first_name: given_name.blank? ? nil : given_name.strip,
                   last_name: last_name.blank? ? nil : last_name.strip ,
                   grade: grade.blank? ? 'UNKNOWN' : grade.strip,
-                  num_year: years_sponsored.blank? ? nil : years_sponsored.strip,
                   institute: school_collage.blank? ? 'UNKNOWN' : school_collage.strip.to_s,
                   course_type: collage_course.blank? ? nil : collage_course.strip.to_s,
                   sex: sex.blank? ? nil : sex.strip,
