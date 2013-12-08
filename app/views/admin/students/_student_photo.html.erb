@@ -6,7 +6,7 @@
   <% end %>
 
   <div>
-    <a id="show-upload">Upload picture</a>
+    <a href="#" id="show-upload">Upload picture</a>
     <div id="upload">
       <%= form_tag(update_photo_admin_student_path(student), enctype: "multipart/form-data" ) do |f| %>
         <%= file_field_tag :photo %>
