@@ -1,6 +1,6 @@
-<div id="photo" class="left-section" style="min-width: 320px">
+<div id="photo" class="left-section" style="text-align: center; margin: 0 20px;">
   <% if student.photo.blank? %>
-    <%= image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',size: '200x200') %>
+    <%= image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', size: '200x200') %>
   <% else %>
     <%= image_tag(student.photo) %>
   <% end %>
@@ -9,7 +9,7 @@
     <a href="#" id="show-upload">Upload picture</a>
     <div id="upload">
       <%= form_tag(update_photo_admin_student_path(student), enctype: "multipart/form-data" ) do |f| %>
-        <%= file_field_tag :photo %>
+        <%= file_field_tag :photo %> <br/>
         <%= submit_tag "Save" %>
       <% end %>
     </div>
@@ -23,8 +23,8 @@
     var upload = $('#upload').hide();
 
     showUpload.click(function() {
-      $('#photo').click()
-      $('#upload').show();
+      upload.show();
+      showUpload.hide();
     })
   });
 </script>
