@@ -9,7 +9,7 @@
       <tbody>
         <tr>
           <th rowspan="6">
-            <%=  image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',size: '200x200') %>
+            <%= render partial: '/admin/students/student_photo', locals: {student: student, image_type: :thumbnail} %>
           </th>
         </tr>
         <tr class="row">
