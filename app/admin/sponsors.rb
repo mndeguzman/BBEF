@@ -40,8 +40,22 @@ ActiveAdmin.register Sponsor do
       active_admin_comments
     end
 
-
-
+    form do |f|
+      f.inputs "Details" do
+        f.input :first_name
+        f.input :last_name
+        f.input :current_balance
+        f.input :date_paid
+        f.input :address
+        f.input :city
+        f.input :state
+        f.input :postcode
+        f.input :home_phone
+        f.input :mobile
+        f.input :email, :as => :email
+        f.input :contact_method, :as => :radio, :collection => ["Email","Home", "Mobile" ]
+      end
+    end
 
 
  action_item :only => :index do
