@@ -61,4 +61,27 @@ ActiveAdmin.register Student do
 
     redirect_to admin_student_path(student)
   end
+
+
+  action_item :only => :index do
+    link_to 'Upload CSV', :action => 'upload_students'
+  end
+
+  collection_action :upload_students do
+    render "admin/students/upload_students"
+  end
+
+  collection_action :import_students, :method => :post do
+    result = StudentImporter.process_csv(params[:csv].tempfile)
+    notice = "You have successfully uploaded #{result[:added]} students"
+  if result[:errors] > 0 || result[:added] < 1
+    result[:error_messages] = result[:error_messages].unshift "no results processed" if result[:added] < 1
+    result[:error_messages] = result[:error_messages].unshift "#{result[:errors]} stock details could not be uploaded"
+    notice = result[:error_messages].join("<br/>").html_safe
+  end
+
+    redirect_to :action => :index, :notice => notice
+
+  end
+
 end

@@ -73,7 +73,7 @@ ActiveAdmin.register Sponsor do
     render "admin/sponsors/upload_sponsors"
   end
 
-  collection_action :import_sponsor, :method => :post do
+  collection_action :import_sponsors, :method => :post do
     result = SponsorImporter.process_csv(params[:csv].tempfile)
     notice = "You have successfully uploaded #{result[:added]} sponsors"
 	if result[:errors] > 0 || result[:added] < 1
