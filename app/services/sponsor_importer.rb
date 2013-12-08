@@ -28,9 +28,10 @@ def self.process_csv(csv)
 
 
   def self.create_sponsor_from_csv_row(row)
-    first_name, last_name, bbef_id,organisation,sponsor_type, address, city, state,zip,country,current_bal, date_paid,paid_up_2014, contact_method,sent_letter,email_address,phone_number,mobile= row
-    puts "row #{row}"
-    puts "date_paid.strip #{date_paid.strip}"
+    first_name, last_name, bbef_id,organisation,sponsor_type, address,
+    city, state,zip,country,current_bal, date_paid,paid_up_2014, 
+    contact_method,sent_letter,email_address,phone_number,mobile= row
+
     date_paid_as_date = date_paid.blank? ? nil : Date.strptime(date_paid.strip, '%d/%m/%y') 
     Sponsor.create!(current_balance: current_bal.strip,
                   date_paid: date_paid_as_date,

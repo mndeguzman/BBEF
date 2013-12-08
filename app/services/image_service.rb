@@ -53,7 +53,7 @@ class ImageService
       thumbnail: FlickRaw.url_t(info),
       large: FlickRaw.url_b(info),
       medium: FlickRaw.url_z(info),
-      small: FlickRaw.url_n(info),
+      small: FlickRaw.url_m(info),
       square: FlickRaw.url_s(info)
     }
     
