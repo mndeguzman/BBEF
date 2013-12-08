@@ -26,7 +26,9 @@ ActiveAdmin.register Sponsor do
         row :first_name
         row :last_name
         row :organisation
-        row :sponsor_type
+        row 'Type' do
+          sponsor.sponsor_type
+        end
         row :current_balance
         row :date_paid
         row :address
@@ -62,6 +64,7 @@ ActiveAdmin.register Sponsor do
         f.input :email, :as => :email
         f.input :contact_method, :as => :radio, :collection => ["Email","Home", "Mobile" ]
       end
+      f.actions
     end
 
 

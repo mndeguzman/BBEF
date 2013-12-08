@@ -4,7 +4,7 @@ ActiveAdmin.register Student do
     column "First Name", :first_name
     column "Last Name", :last_name
     column "Grade", :grade
-    column "Institution", :institute
+    column "School/College", :institute
 
     default_actions
   end
@@ -20,11 +20,19 @@ ActiveAdmin.register Student do
       div do
         attributes_table do
           row :dob
-          row :sex
+          row 'Gender' do
+            student.sex
+          end
           row :grade
-          row :institute
-          row :course_type
-          row :created_at
+          row 'School/College' do
+            student.institute
+          end
+          row 'Course' do
+            student.course_type
+          end
+          row 'Created on' do
+            student.created_at
+          end
         end
       end
     end
@@ -46,6 +54,7 @@ ActiveAdmin.register Student do
       f.input "post_program", :label => "Post program career"
       f.input "thumbnail"
     end
+    f.actions
   end
 
   member_action :update_photo, :method => :post do
