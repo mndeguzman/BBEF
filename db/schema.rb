@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(:version => 20131208022540) do
     t.string   "mobile"
     t.string   "email"
     t.string   "contact_method"
-    t.string   "bbef_id"
     t.string   "country"
     t.string   "sponsor_type"
     t.string   "organisation"
+    t.string   "bbef_id"
   end
 
   create_table "students", :force => true do |t|

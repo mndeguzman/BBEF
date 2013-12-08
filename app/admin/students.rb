@@ -10,8 +10,12 @@ ActiveAdmin.register Student do
   end
 
   #Filters
-  filter :sponsor_id, :as => :select, :collection => proc {(Sponsor.all).map{|p| [p.full_name, p.id]}}
-  filter :institute, :as => :select, :collection => proc {(Student.all).map{|p| [p.institute]}}, :label => 'School'
+  filter :first_name, :as => :string
+  filter :last_name, :as => :string
+  filter :sponsor_id, :as => :select, :collection => proc {(Sponsor.all).map{|p| [p.full_name, p.id]}.uniq}
+  filter :institute, :as => :select, :collection => proc {(Student.all).map{|p| [p.institute]}.uniq}, :label => 'School'
+  filter :grade, :as => :select, :collection => ["Kinder", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "1st year Highschool", "2nd year Highschool", "3rd year Highschool", "4th year Highschool", "College 1", "College 2", "College 3", "College 4", "College 5"]
+
 
   show do |student|
     render partial: 'student_photo', locals: {student: student, image_type: :photo}
