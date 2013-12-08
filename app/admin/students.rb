@@ -49,15 +49,11 @@ ActiveAdmin.register Student do
   end
 
   member_action :update_photo, :method => :post do
-    puts "params = #{params}"
-    student = Student.find(params[:id])
-    photo = params[:photo]
+    saved_image = ImageService.singleton.upload(params[:photo])
 
-    saved_image = ImageService.singleton.upload(photo)
-    puts "saved_image = #{saved_image}"
-    student.thumbnail = saved_image[:thumbnail]
-    student.photo = saved_image[:small]
-    student.save
+    student = Student.update(params[:id], 
+      thumbnail: saved_image[:thumbnail], 
+      photo: saved_image[:small])
 
     redirect_to admin_student_path(student)
   end
