@@ -2,7 +2,7 @@ ActiveAdmin.register Student do
   menu :priority => 2
   index do
     column "First Name", :first_name
-    column "Date of Birth", :dob
+    column "Last Name", :last_name
     column "Grade", :grade
     column "Institution", :institute
 
