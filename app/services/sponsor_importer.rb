@@ -33,24 +33,24 @@ def self.process_csv(csv)
     contact_method,email_address,phone_number,mobile= row
 
     puts "row #{row}"
-    puts "date_paid #{date_paid}"
+    puts "current_bal #{current_bal}"
     date_paid_as_date = date_paid.blank? ? nil : Date.strptime(date_paid.strip, '%d/%m/%y') 
-    Sponsor.create!(current_balance: current_bal.strip,
-                  bbef_id: bbef_id.strip,
-                  date_paid: date_paid_as_date,
-                  first_name: first_name.strip,
-                  last_name: last_name.strip,
-                  address: address.strip,
-                  city: city.strip.to_s,
-                  state: state.strip.to_s,
-                  postcode: zip.strip,
-                  organisation: organisation,
-                  country: country.strip,
-                  sponsor_type: sponsor_type.strip,
-                  email: email_address.strip,
-                  contact_method: contact_method.strip,
-                  home_phone:phone_number,
-                  mobile: mobile )
+    Sponsor.create!(current_balance: current_bal.blank? ? nil : current_bal.gsub('$','').strip,
+                  bbef_id: current_bal.blank? ? nil : bbef_id.strip,
+                  date_paid:  date_paid_as_date,
+                  first_name: first_name.blank? ? 'UNKNOWN' : first_name.strip,
+                  last_name: last_name.blank? ? 'UNKNOWN' : last_name.strip,
+                  address: address.blank? ? 'UNKNOWN' : address.strip,
+                  city: city.blank? ? 'UNKNOWN' : city.strip.to_s,
+                  state: state.blank? ? 'UNKNOWN' : state.strip.to_s,
+                  postcode: zip.blank? ? 'UNKNOWN' : zip.strip,
+                  organisation: organisation.blank? ? nil : organisation,
+                  country: country.blank? ? 'UNKNOWN' : country.strip,
+                  sponsor_type: sponsor_type.blank? ? 'UNKNOWN' : sponsor_type.strip,
+                  email: email_address.blank? ? nil : email_address.strip,
+                  contact_method: contact_method.blank? ? nil : contact_method.strip,
+                  home_phone: phone_number.blank? ? nil : phone_number.strip,
+                  mobile: mobile.blank? ? nil : mobile.strip )
   end
 
 end
