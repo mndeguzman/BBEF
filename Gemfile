@@ -5,6 +5,7 @@ gem 'activeadmin'
 gem "active_admin_import", "~> 2.0.1"
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'flickraw'
+gem 'country_select' # Required for ActiveAdmin
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -20,7 +21,7 @@ group :assets do
   gem 'sass-rails' # if running rails 3.1 or greater
   gem 'compass-rails'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'country-select' # Required for ActiveAdmin
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
