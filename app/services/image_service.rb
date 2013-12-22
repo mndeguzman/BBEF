@@ -11,14 +11,16 @@ class ImageService
     token = flickr.get_request_token
     auth_url = flickr.get_authorize_url(token['oauth_token'], :perms => 'delete')
 
-    puts "Open this url in your process to complete the authication process : #{auth_url}"
-    puts "Copy here the number given when you complete the process."
+    puts "Open this url to complete the authication process : #{auth_url}"
+    puts "Copy here the number given when you complete the process:"
     verify = gets.strip
 
     flickr.get_access_token(token['oauth_token'], token['oauth_token_secret'], verify)
-    
 
-    puts "You are now authenticated as #{login.username} with token #{flickr.access_token} and secret #{flickr.access_secret}"
+    puts "Access granted for: #{login.username}"
+    puts "Set:
+     FLICKRAW_ACCESS_TOKEN=#{flickr.access_token}
+     FLICKRAW_SHARED_SECRET=#{flickr.access_secret}"
   rescue FlickRaw::FailedResponse => e
     puts "Authentication failed : #{e.msg}"
   end
@@ -27,7 +29,6 @@ class ImageService
     FlickRaw.api_key = ENV['FLICKRAW_API_KEY']
     FlickRaw.shared_secret = ENV['FLICKRAW_SHARED_SECRET']
     #FlickRaw.secure = true
-
     flickr.access_token = ENV['FLICKRAW_ACCESS_TOKEN']
     flickr.access_secret = ENV['FLICKRAW_ACCESS_SECRET']
   end
@@ -37,7 +38,11 @@ class ImageService
   end
 
   def upload(photo_path, opts={})
-    get_image_urls upload_image(photo_path, opts)
+    get_image_details upload_image(photo_path, opts)
+  end
+
+  def delete(photo_id) 
+    flickr.photos.delete(photo_id: photo_id)
   end
 
   private
@@ -46,16 +51,12 @@ class ImageService
     flickr.upload_photo photo_path, opts
   end
 
-  def get_image_urls(image_id)
-    info = flickr.photos.getInfo(:photo_id => image_id)
+  def get_image_details(photo_id)
+    info = flickr.photos.getInfo(:photo_id => photo_id)
     { 
-      original: FlickRaw.url_o(info),      
+      flickr_id: photo_id,    
       thumbnail: FlickRaw.url_t(info),
-      large: FlickRaw.url_b(info),
-      medium: FlickRaw.url_z(info),
       small: FlickRaw.url_m(info),
-      square: FlickRaw.url_s(info)
-    }
-    
+    }  
   end
 end

@@ -1,16 +1,20 @@
 <div id="photo" class="left-section" style="text-align: center; margin: 0 20px;">
-  <% if student.photo.blank? %>
-    <%= image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', size: '200x200') %>
+  <% if student.photo.nil? %>
+    <% size = {thumbnail: '100x100', small: '200x200'} %>
+    <%= image_tag('http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', size: size[image_type]) %>
   <% else %>
-    <%= image_tag(student.try(image_type)) %>
+    <%= image_tag(student.photo.try(image_type)) %>
   <% end %>
 
   <div>
-    <a style="cursor: pointer" id="show-upload">Upload picture</a>
+    <a style="cursor: pointer" id="show-upload">Update picture</a>
     <div id="upload">
-      <%= form_tag(update_photo_admin_student_path(student), enctype: "multipart/form-data" ) do |f| %>
+      <%= form_tag( update_photo_admin_student_path(student), enctype: "multipart/form-data" ) do |f| %>
         <%= file_field_tag :photo %> <br/>
-        <%= submit_tag "Save" %>
+        <%= submit_tag "Save", style: 'float:left' %>
+      <% end %>
+      <%= form_tag( delete_photo_admin_student_path(student), method: 'delete') do |f| %>
+        <%= submit_tag "Delete", style: 'float:right' %>
       <% end %>
     </div>
   </div>
