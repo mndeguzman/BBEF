@@ -10,3 +10,6 @@ Dev Notes
 [] Upload CSV for student
 [] Modify default admin user
 [] Set up status tags for students/sponsors
+Setup users
+Link app with a bbef flickr account
+Link from the main bbef website
