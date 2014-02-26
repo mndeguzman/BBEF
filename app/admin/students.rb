@@ -18,7 +18,7 @@ ActiveAdmin.register Student do
 
 
   show do |student|
-    render partial: 'student_photo', locals: {student: student, image_type: :photo}
+    render partial: 'student_photo', locals: {student: student, image_type: :small}
     div :class => 'right-section' do
       h2 student.full_name
       div do
@@ -56,17 +56,22 @@ ActiveAdmin.register Student do
       f.input "sex", :as => :radio, :collection => ["Male", "Female"], :label => "Gender"
       f.input "program_end", :label => "Program end date"
       f.input "post_program", :label => "Post program career"
-      f.input "thumbnail"
     end
     f.actions
   end
 
-  member_action :update_photo, :method => :post do
-    saved_image = ImageService.singleton.upload(params[:photo])
+  member_action :update_photo, method: :post do
+    student = Student.includes(:photo).find(params[:id])
+    student.photo.delete if student.photo
+    student.photo = Photo.new( params[:photo] )
+    student.save
 
-    student = Student.update(params[:id],
-      thumbnail: saved_image[:thumbnail],
-      photo: saved_image[:small])
+    redirect_to(request.env["HTTP_REFERER"])
+  end
+
+  member_action :delete_photo, method: :delete do
+    student = Student.includes(:photo).find(params[:id])
+    student.photo.try(:delete)
 
     redirect_to(request.env["HTTP_REFERER"])
   end

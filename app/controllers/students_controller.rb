@@ -31,12 +31,7 @@ class StudentsController < ApplicationController
 
   def update_photo
     @student = Student.find(params[:student_id])
-    photo = params[:photo]
-
-    saved_image = ImageService.singleton.upload(photo)
-    puts "saved_image = #{saved_image}"
-    @student.thumbnail = saved_image[:thumbnail]
-    @student.save
+    @student.replace_photo! Photo.new( params[:photo] )
 
     redirect_to :edit_photo
   end
