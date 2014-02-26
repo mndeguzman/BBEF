@@ -17,6 +17,7 @@ class Sponsor < ActiveRecord::Base
   validates :postcode, presence: true
   validates :country, presence: true
   validates :sponsor_type, presence: true
+  validates :contact_method, presence: true
 
 
   def full_name
