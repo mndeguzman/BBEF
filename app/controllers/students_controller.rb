@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-	
+
 	before_filter :find_student
 
 	def index
@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
 
 	def new
 		@student = Student.new
-	end	
+	end
 
 	def create
 	    @student = Student.new(params[:student])
@@ -19,11 +19,11 @@ class StudentsController < ApplicationController
   		  flash[:error] = "Your student has not been created"
 	      render 'new'
 	    end
-	end		
+	end
 
 	def show
 		@sponsors = Sponsor.order("last_name").all
-	end	
+	end
 
 	def edit_photo
     @student = Student.find(params[:student_id])
@@ -44,23 +44,23 @@ class StudentsController < ApplicationController
   		  flash[:error] = "Your disired stduent details are not valid"
 	      render 'edit'
 	    end
-	end			
+	end
 
 	def associate_sponsor
 		puts "params['sponsor_name'] #{params['sponsor_name']}"
 	    sponsor = Sponsor.find(params["sponsor_name"])
-	    @student.sponsor = sponsor 
+	    @student.sponsor = sponsor
 	    @student.save!
 	    redirect_to student_path(@student)
-  	end 
+  	end
 
 	def destroy
 	    @student.destroy
-	    redirect_to students_url 
+	    redirect_to students_url
 	end
- 	
 
-  private 
+
+  private
   def find_student
        @student = Student.find(params[:id]) if params[:id]
   end
