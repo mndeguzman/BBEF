@@ -7,7 +7,7 @@ class SponsorsController < ApplicationController
 
   def new
   	@sponsor = Sponsor.new
-  end	
+  end
 
   def create
     @sponsor = Sponsor.new(params[:sponsor])
@@ -18,13 +18,13 @@ class SponsorsController < ApplicationController
         flash[:error] = "Your sponsor has not been created"
         render 'new'
       end
-  end		
+  end
 
   def show
-  end 
+  end
 
   def edit
-  end     
+  end
 
   def update
     if @sponsor.update_attributes(params[:sponsor])
@@ -33,12 +33,12 @@ class SponsorsController < ApplicationController
       else
         flash[:error] = "Your sponsor has not been created"
         render 'edit'
-      end   
-  end   
+      end
+  end
 
-  
 
-  private 
+
+  private
   def find_sponsor
        @sponsor = Sponsor.find(params[:id]) if params[:id]
   end
