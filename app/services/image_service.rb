@@ -8,19 +8,27 @@ class ImageService
   end
 
   def self.request_authentication
+    puts "Enter the API key you get after you generate an API key:"
+    FlickRaw.api_key = api_key = STDIN.gets.strip
+
+    puts "And the shared secret:" 
+    FlickRaw.shared_secret = shared_secret = STDIN.gets.strip
+    
     token = flickr.get_request_token
     auth_url = flickr.get_authorize_url(token['oauth_token'], :perms => 'delete')
 
     puts "Open this url to complete the authication process : #{auth_url}"
     puts "Copy here the number given when you complete the process:"
-    verify = gets.strip
+    verify = STDIN.gets.strip
 
     flickr.get_access_token(token['oauth_token'], token['oauth_token_secret'], verify)
 
-    puts "Access granted for: #{login.username}"
+    puts "Access granted for:"
     puts "Set:
+     FLICKRAW_API_KEY=#{api_key}
+     FLICKRAW_SHARED_SECRET=#{shared_secret}
      FLICKRAW_ACCESS_TOKEN=#{flickr.access_token}
-     FLICKRAW_SHARED_SECRET=#{flickr.access_secret}"
+     FLICKRAW_ACCESS_SECRET=#{flickr.access_secret}"
   rescue FlickRaw::FailedResponse => e
     puts "Authentication failed : #{e.msg}"
   end
