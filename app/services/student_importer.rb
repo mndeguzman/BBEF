@@ -7,7 +7,7 @@ def self.process_csv(csv)
     things_added = -1
     error_messages = []
   	Student.delete_all
-    CSV.foreach(csv) do |row|
+    CSV.foreach(csv,headers: :first_row,:header_converters => :symbol) do |row|
 		nb_line_processed = nb_line_processed +1
 		begin
 			create_student_from_csv_row(row)
@@ -16,7 +16,7 @@ def self.process_csv(csv)
       puts "\n\n Error while importing student " + exception.inspect
       puts "Backtrace:\n\t#{exception.backtrace.join("\n\t")}"
 			nb_errors = nb_errors+1
-			error_messages << "* lines #{nb_line_processed} did not process" if error_messages.size < 5
+			error_messages << "* lines #{nb_line_processed+2} did not process" if error_messages.size < 5
 		end
 	end
     result = {}
@@ -27,12 +27,37 @@ def self.process_csv(csv)
   end
 
   def self.create_student_from_csv_row(row)
-    given_name, middle_name,last_name, date_of_birth,sex,
-    grade, school_collage, collage_course,program_start_date,program_end_date,post_program_career, years_sponsored,sponsor = row
+
+
+    given_name= row[:givenname]
+    middle_name= row[:middlename]
+    last_name= row[:surname]
+    date_of_birth= row[:dob]
+    sex= row[:sex]
+    grade= row[:grade]
+    school_collage= row[:schoolcollege]
+    collage_course= row[:collegecourse]
+    program_start_date= row[:programstartdate]
+    program_end_date= row[:programenddate]
+    post_program_career= row[:postprogramcareer]
+    years_sponsored= row[:yearssponsored]
+    sponsor = row[:sponsor_id]
     #puts "program_start_date #{program_start_date}"
-    dob_as_date = date_of_birth.blank? ? nil : Date.strptime(date_of_birth.strip, '%d/%m/%y') 
-    program_start_as_date = program_start_date.blank? ? nil : Date.strptime(program_start_date.strip, '%d/%m/%y') 
-    program_end_as_date = program_end_date.blank? ? nil : Date.strptime(program_end_date.strip, '%d/%m/%y') 
+    begin
+      dob_as_date = date_of_birth.blank? ? nil : Date.strptime(date_of_birth.strip, '%d/%m/%y')
+    rescue
+      raise "'#{date_of_birth}' is not a valid date of birth (date format is dd/mm/yy)" 
+    end
+    begin
+      program_start_as_date = program_start_date.blank? ? nil : Date.strptime(program_start_date.strip, '%d/%m/%y') 
+    rescue
+      raise "'#{program_start_date}' is not a valid program start date (date format is dd/mm/yy)"
+    end 
+    begin    
+      program_end_as_date = program_end_date.blank? ? nil : Date.strptime(program_end_date.strip, '%d/%m/%y') 
+    rescue
+      raise "'#{program_end_date}' is not a valid program end date (date format is dd/mm/yy)"
+    end 
 
     sponsor = sponsor.blank? ? nil:  Sponsor.find_by_bbef_id(sponsor.strip) 
 

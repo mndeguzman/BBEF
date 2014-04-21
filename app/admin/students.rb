@@ -94,7 +94,7 @@ ActiveAdmin.register Student do
     notice = result[:error_messages].join("<br/>").html_safe
   end
 
-    redirect_to :action => :index, :notice => notice
+    redirect_to({:action => :index}, :notice => notice)
 
   end
 
